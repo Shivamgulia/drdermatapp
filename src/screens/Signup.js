@@ -10,11 +10,17 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import LogoButton from "../components/UI/LogoButton";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Signup() {
   const [number, setNumber] = useState();
+  const navigation = useNavigation();
 
   function confirmOTP() {}
+
+  function navigateSignup() {
+    navigation.navigate("Signup");
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,7 +28,7 @@ export default function Signup() {
         <LogoButton onPress={() => {}} />
       </View>
       <View style={styles.formCont}>
-        <Text style={styles.signText}>Sign Up</Text>
+        <Text style={styles.signText}>Login Up</Text>
         <Text styl={styles.numberText}>Enter Your Mobile Number</Text>
         <KeyboardAvoidingView behavior={"height"} style={styles.form}>
           <View style={styles.inputView}>
@@ -37,6 +43,9 @@ export default function Signup() {
           </View>
           <Pressable onPress={confirmOTP} style={styles.generateButton}>
             <Text style={styles.generateText}>Generate OTP</Text>
+          </Pressable>
+          <Pressable onPress={navigateSignup} style={styles.generateButton}>
+            <Text style={styles.generateText}>Signup</Text>
           </Pressable>
         </KeyboardAvoidingView>
       </View>

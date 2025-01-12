@@ -7,6 +7,7 @@ import Login from "../screens/Login";
 import React from "react";
 import Signup from "../screens/Signup";
 import Main from "../screens/Main";
+import Confirmotp from "../screens/Confirmotp";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,11 @@ const AuthStack = () => {
       <Stack.Screen
         name="Signup"
         component={Signup}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Confirmotp"
+        component={Confirmotp}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

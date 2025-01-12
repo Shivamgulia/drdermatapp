@@ -11,19 +11,15 @@ export default function LogoButton(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#ebf1cf",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
   button: {
     backgroundColor: "white",
     paddingHorizontal: 40,
     paddingVertical: 20,
     display: "flex",
     flexDirection: "row",
-    borderRadius: "18%",
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px",
+    borderRadius: 50,
   },
   drtext: {
     fontSize: 40,
