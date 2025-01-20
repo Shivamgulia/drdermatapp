@@ -8,9 +8,9 @@ import {
 } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import LogoButton from "../components/UI/LogoButton";
 import Home1 from "../../assets/home1.png";
 import Home2 from "../../assets/home2.png";
+import SquareLogo from "../components/UI/SquareLogo";
 
 export default function Main() {
   const navigation = useNavigation();
@@ -22,7 +22,7 @@ export default function Main() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoCont}>
-        <LogoButton onPress={goToLogin} />
+        <SquareLogo onPress={goToLogin} />
       </View>
       <View style={styles.bottomCont}>
         <View style={styles.imageCont}>
@@ -37,7 +37,7 @@ export default function Main() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#155e95",
+    backgroundColor: "#d1f0eb",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

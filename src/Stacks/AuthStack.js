@@ -8,6 +8,7 @@ import React from "react";
 import Signup from "../screens/Signup";
 import Main from "../screens/Main";
 import Confirmotp from "../screens/Confirmotp";
+import SelectCity from "../screens/SelectCity";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,11 @@ const AuthStack = () => {
       <Stack.Screen
         name="Confirmotp"
         component={Confirmotp}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Selectcity"
+        component={SelectCity}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

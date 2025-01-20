@@ -11,6 +11,7 @@ import {
 import React, { useState } from "react";
 import LogoButton from "../components/UI/LogoButton";
 import Otp1 from "../../assets/otp1.png";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Confirmotp() {
   const [digit1, setDigit1] = useState();
@@ -20,7 +21,11 @@ export default function Confirmotp() {
   const [digit5, setDigit5] = useState();
   const [digit6, setDigit6] = useState();
 
-  function confirmOTP() {}
+  const navigation = useNavigation();
+
+  function confirmOTP() {
+    navigation.navigate("Selectcity");
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoCont}>
