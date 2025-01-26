@@ -9,6 +9,11 @@ import Signup from "../screens/Signup";
 import Main from "../screens/Main";
 import Confirmotp from "../screens/Confirmotp";
 import SelectCity from "../screens/SelectCity";
+import UserDetailsForm from "../screens/UserDetailsForm";
+import Intro1 from "../screens/Intro1";
+import Intro2 from "../screens/Intro2";
+import Intro3 from "../screens/Intro3";
+import Home from "../screens/Home";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +44,31 @@ const AuthStack = () => {
       <Stack.Screen
         name="Selectcity"
         component={SelectCity}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Userdetailsform"
+        component={UserDetailsForm}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Intro1"
+        component={Intro1}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Intro2"
+        component={Intro2}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Intro3"
+        component={Intro3}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Dashboard"
+        component={Home}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

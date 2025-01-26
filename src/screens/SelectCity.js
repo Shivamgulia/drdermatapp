@@ -14,20 +14,29 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Feather from "react-native-vector-icons/Feather";
 
 import CityIcon from "../../assets/city.png";
+import { useNavigation } from "@react-navigation/native";
 
 const DUMMYCITIES = ["Meerut", "Gurugram", "Delhi", "Kanpur"];
 
 function SelectCity() {
+  const navigation = useNavigation();
+
+  function moveForwad() {
+    console.log("userdetailsform");
+
+    navigation.navigate("Userdetailsform");
+  }
+
   return (
     <View style={styles.cont}>
       <View style={styles.top}></View>
-      <View style={styles.middle}>
+      <Pressable style={styles.middle} onPress={moveForwad}>
         <Text style={styles.input}>
           <Icon name="location-sharp" size={15} color="#868686" />
           <Text style={styles.text}>Select For Your City</Text>
         </Text>
         {/* <TextInput /> */}
-      </View>
+      </Pressable>
       <View style={styles.bottom}>
         <View style={styles.currentLoc}>
           <Text style={styles.input}>

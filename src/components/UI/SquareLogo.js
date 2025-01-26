@@ -12,13 +12,11 @@ export default function SquareLogo(props) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "inherit",
+    backgroundColor: "white",
     paddingHorizontal: 30,
     paddingVertical: 15,
     display: "flex",
     flexDirection: "row",
-    borderColor: "#1a2b44",
-    borderWidth: 2,
   },
   drtext: {
     fontSize: 40,

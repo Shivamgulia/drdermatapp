@@ -29,7 +29,7 @@ export default function Main() {
           <Image source={Home1} style={styles.bottomImg} />
           <Image source={Home2} style={styles.bottomImg} />
         </View>
-        <Text>Copyright by dr.dermat 2025</Text>
+        <Text style={styles.bottomtext}>Copyright by dr.dermat 2025</Text>
       </View>
     </SafeAreaView>
   );
@@ -37,7 +37,7 @@ export default function Main() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#d1f0eb",
+    backgroundColor: "#155e95",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -65,5 +65,9 @@ const styles = StyleSheet.create({
   bottomImg: {
     width: 40,
     height: 40,
+  },
+  bottomtext: {
+    color: "white",
+    paddingBottom: 20,
   },
 });
