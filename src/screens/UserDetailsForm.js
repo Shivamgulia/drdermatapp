@@ -14,6 +14,10 @@ import LogoButton from "../components/UI/LogoButton";
 import { useNavigation } from "@react-navigation/native";
 
 import UserForm from "../../assets/userform.png";
+import Logo from "../../assets/drdermatlogo.jpeg";
+
+import { Dimensions } from "react-native";
+const windowWidth = Dimensions.get("window").width;
 
 export default function UserDetailsForm() {
   const [name, setName] = useState();
@@ -33,12 +37,16 @@ export default function UserDetailsForm() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoCont}>
-        <LogoButton onPress={() => {}} />
+        {/* <LogoButton onPress={() => {}} /> */}
+        <Image source={Logo} style={styles.logoImage} />
       </View>
       <View style={styles.imgCont}>
         <Image source={UserForm} style={styles.mainImage} />
       </View>
-      <KeyboardAvoidingView behavior={"height"} style={styles.form}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.form}
+      >
         <Text style={styles.signText}>Add your information ....</Text>
         <View style={styles.inputView}>
           <Text style={styles.label}>Name</Text>
@@ -78,6 +86,12 @@ const styles = StyleSheet.create({
     top: 60,
     flex: 0.3,
   },
+  logoImage: {
+    width: 218,
+    height: 66,
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 9px 18px -18px",
+  },
   imgCont: {
     flex: 0.7,
     marginTop: 150,
@@ -102,21 +116,33 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
 
-    gap: 20,
+    gap: 10,
     paddingHorizontal: 30,
     paddingVertical: 15,
 
     alignItems: "flex-start",
+    textAlign: "center",
   },
-  label: { paddingLeft: 20, fontSize: 15 },
+  label: {
+    fontSize: 15,
+
+    position: "relative",
+    top: 20,
+    left: 15,
+    paddingHorizontal: 10,
+    backgroundColor: "white",
+    zIndex: 2,
+  },
   input: {
     borderRadius: 10,
     paddingVertical: 15,
     paddingHorizontal: 20,
-    width: 350,
+    width: windowWidth - 40,
+
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 15px -3px",
-    backgroundColor: "#fcf2d3",
+    // backgroundColor: "#fcf2d3",
+    borderWidth: 1,
   },
   generateButton: {
     color: "white",
@@ -134,7 +160,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
   },
   footCont: {
-    position: "absolute",
-    bottom: 10,
+    position: "relative",
+    top: 10,
   },
 });

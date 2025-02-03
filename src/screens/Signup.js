@@ -30,7 +30,10 @@ export default function Signup() {
       <View style={styles.formCont}>
         <Text style={styles.signText}>Login Up</Text>
         <Text styl={styles.numberText}>Enter Your Mobile Number</Text>
-        <KeyboardAvoidingView behavior={"height"} style={styles.form}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.form}
+        >
           <View style={styles.inputView}>
             <Text>+91</Text>
             <TextInput

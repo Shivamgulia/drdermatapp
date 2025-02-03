@@ -1,6 +1,7 @@
 import {
   View,
   Text,
+  Platform,
   SafeAreaView,
   StyleSheet,
   Pressable,
@@ -12,6 +13,7 @@ import React, { useState } from "react";
 import LogoButton from "../components/UI/LogoButton";
 import Otp1 from "../../assets/otp1.png";
 import { useNavigation } from "@react-navigation/native";
+import Logo from "../../assets/drdermatlogo.jpeg";
 
 export default function Confirmotp() {
   const [digit1, setDigit1] = useState();
@@ -27,16 +29,20 @@ export default function Confirmotp() {
     navigation.navigate("Selectcity");
   }
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.logoCont}>
-        <LogoButton onPress={() => {}} />
+        {/* <LogoButton onPress={() => {}} /> */}
+        <Image source={Logo} style={styles.logoImage} />
       </View>
       <View style={styles.formCont}>
         <Image source={Otp1} style={styles.mainImage} />
         {/* <Text style={styles.signText}>Sign In To Continue</Text> */}
         <View style={styles.bottomForm}>
           <Text style={styles.numberText}>Verify mobile number ...</Text>
-          <KeyboardAvoidingView behavior={"height"} style={styles.form}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={styles.form}
+          >
             <View style={styles.inputView}>
               <TextInput
                 onChangeText={setDigit1}
@@ -83,13 +89,13 @@ export default function Confirmotp() {
             </View>
 
             <Text style={styles.timeText}>
-              Time left for verification - {"{29}"} sec
+              Time left for verification - {"{28}"} sec
             </Text>
             <Pressable onPress={confirmOTP} style={styles.generateButton}>
               <Text style={styles.generateText}>Generate OTP</Text>
             </Pressable>
             <Pressable onPress={() => {}} style={styles.resendButton}>
-              <Text style={styles.resendText}>ResendOtp</Text>
+              <Text style={styles.resendText}>Resend OTP</Text>
             </Pressable>
           </KeyboardAvoidingView>
         </View>
@@ -100,7 +106,7 @@ export default function Confirmotp() {
           agree to Cureskin's Privacy Policy and Terms of Service
         </Text>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -115,6 +121,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 100,
     flex: 1,
+  },
+  logoImage: {
+    width: 218,
+    height: 66,
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 9px 18px -18px",
   },
   formCont: {
     marginTop: 150,
@@ -157,9 +169,11 @@ const styles = StyleSheet.create({
     // borderBottomColor: "black",
     // borderBottomWidth: 1,
     borderRadius: 10,
-    width: 30,
-    backgroundColor: "#fcf2d3",
+    width: 40,
+    heeight: 30,
+    // backgroundColor: "#fcf2d3",
     paddingHorizontal: 10,
+    borderWidth: 1,
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
     textAlign: "center",
@@ -190,9 +204,10 @@ const styles = StyleSheet.create({
   footer: {
     fontSize: 10,
     paddingHorizontal: 40,
+    textAlign: "center",
   },
   footCont: {
-    position: "absolute",
-    bottom: 50,
+    position: "relative",
+    top: 50,
   },
 });

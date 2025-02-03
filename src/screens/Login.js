@@ -14,6 +14,10 @@ import LogoButton from "../components/UI/LogoButton";
 import { useNavigation } from "@react-navigation/native";
 
 import Signup1 from "../../assets/signup1.png";
+import Logo from "../../assets/drdermatlogo.jpeg";
+
+import { Dimensions } from "react-native";
+const windowWidth = Dimensions.get("window").width;
 
 export default function Login() {
   const [number, setNumber] = useState();
@@ -32,13 +36,21 @@ export default function Login() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoCont}>
-        <LogoButton onPress={() => {}} />
+        {/* <LogoButton onPress={() => {}} /> */}
+        <Image source={Logo} style={styles.logoImage} />
       </View>
       <View style={styles.formCont}>
         <Image source={Signup1} style={styles.mainImage} />
-        <Text style={styles.signText}>Sign In To Continue</Text>
-        {/* <Text styl={styles.numberText}>Enter Your Mobile Number</Text> */}
-        <KeyboardAvoidingView behavior={"height"} style={styles.form}>
+        <View style={styles.textCont}>
+          <Text style={styles.signText}>Sign In To Continue</Text>
+        </View>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.form}
+        >
+          <View style={styles.label}>
+            <Text style={styles.labelText}>Enter 10 digit Mobile Number</Text>
+          </View>
           <View style={styles.inputView}>
             <Text style={styles.input}>+91</Text>
             <TextInput
@@ -50,7 +62,7 @@ export default function Login() {
             />
           </View>
           <Pressable onPress={confirmOTP} style={styles.generateButton}>
-            <Text style={styles.generateText}>Generate OTP</Text>
+            <Text style={styles.generateText}>Get Verfication Code</Text>
           </Pressable>
           {/* <Pressable onPress={navigateLogin} style={styles.generateButton}> */}
           {/* <Text style={styles.generateText}>Login</Text> */}
@@ -79,10 +91,16 @@ const styles = StyleSheet.create({
     top: 100,
     flex: 1,
   },
+  logoImage: {
+    width: 218,
+    height: 66,
+    boxShadow:
+      "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 9px 18px -18px",
+  },
   formCont: {
     marginTop: 150,
     alignItems: "center",
-    gap: 40,
+    // gap: 20,
   },
   mainImage: {
     width: 250,
@@ -93,8 +111,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 20,
   },
+  textCont: {
+    // justifyContent: "flex-end",
+    paddingTop: 20,
+    // paddingBottom: -10,
+    width: windowWidth - 50,
+  },
   signText: {
-    fontSize: 30,
+    fontSize: 20,
+    fontWeight: "bold",
   },
   numberText: {
     fontSize: 20,
@@ -105,17 +130,32 @@ const styles = StyleSheet.create({
     // backgroundColor: "#ebf1cf",
     alignItems: "center",
     gap: 20,
-    paddingHorizontal: 60,
-    paddingVertical: 30,
+    paddingVertical: 0,
+    paddingHorizontal: 10,
     borderRadius: 20,
+
+    borderWidth: 1,
+    borderColor: "grey",
+    height: 66,
+    width: windowWidth - 30,
   },
+  label: {
+    position: "relative",
+    top: 30,
+    left: -(windowWidth / 2) + 130,
+    backgroundColor: "white",
+    zIndex: 2,
+    paddingHorizontal: 10,
+    color: "grey",
+  },
+  labelText: {},
   input: {
     // borderBottomColor: "black",
     // borderBottomWidth: 1,
-    borderRadius: 10,
-    padding: 10,
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
+    // borderRadius: 10,
+    // padding: 10,
+    // boxShadow:
+    //   "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
   },
   generateButton: {
     color: "white",
@@ -131,9 +171,10 @@ const styles = StyleSheet.create({
   footer: {
     fontSize: 10,
     paddingHorizontal: 40,
+    textAlign: "center",
   },
   footCont: {
-    position: "absolute",
-    bottom: 10,
+    position: "relative",
+    top: 50,
   },
 });

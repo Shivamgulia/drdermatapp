@@ -9,6 +9,9 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
+import { Dimensions } from "react-native";
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 import Icon from "react-native-vector-icons/Ionicons";
 import Feather from "react-native-vector-icons/Feather";
@@ -26,6 +29,8 @@ function SelectCity() {
 
     navigation.navigate("Userdetailsform");
   }
+
+  console.log(windowHeight, windowWidth);
 
   return (
     <View style={styles.cont}>
@@ -75,7 +80,7 @@ const styles = StyleSheet.create({
   },
   top: {
     backgroundColor: "#155e95",
-    flex: 1,
+    height: windowHeight / 6,
   },
   middle: {
     alignSelf: "center",
@@ -92,7 +97,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
 
     position: "absolute",
-    top: 130,
+    top: windowHeight / 6 - 30,
 
     zIndex: 1,
   },
@@ -119,6 +124,7 @@ const styles = StyleSheet.create({
 
     borderStyle: "none solid none solid",
     justifyContent: "center",
+    borderColor: "#868686",
     gap: 10,
   },
   listCont: {
