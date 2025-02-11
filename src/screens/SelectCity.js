@@ -38,16 +38,17 @@ function SelectCity() {
       <Pressable style={styles.middle} onPress={moveForwad}>
         <Text style={styles.input}>
           <Icon name="location-sharp" size={15} color="#868686" />
-          <Text style={styles.text}>Select For Your City</Text>
         </Text>
+        <Text style={styles.text}>Select For Your City</Text>
         {/* <TextInput /> */}
       </Pressable>
       <View style={styles.bottom}>
         <View style={styles.currentLoc}>
           <Text style={styles.input}>
             <Feather name="target" size={15} color="#868686" />
-            <Text style={styles.text}>Select For Your City</Text>
+            {/* <Text style={styles.text}>Select For Your City</Text> */}
           </Text>
+          <TextInput placeholder="Select For Your City" />
         </View>
         <View style={styles.listCont}>
           <FlatList
@@ -87,6 +88,8 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
 
+    flexDirection: "row",
+
     backgroundColor: "white",
 
     borderColor: "#868686",
@@ -104,6 +107,7 @@ const styles = StyleSheet.create({
   input: {
     display: "flex",
     textAlign: "center",
+    justifyContent: "center",
   },
   text: {
     alignSelf: "center",
@@ -124,6 +128,8 @@ const styles = StyleSheet.create({
 
     borderStyle: "none solid none solid",
     justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
     borderColor: "#868686",
     gap: 10,
   },

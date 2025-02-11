@@ -92,7 +92,7 @@ export default function Confirmotp() {
               Time left for verification - {"{28}"} sec
             </Text>
             <Pressable onPress={confirmOTP} style={styles.generateButton}>
-              <Text style={styles.generateText}>Generate OTP</Text>
+              <Text style={styles.generateText}>Confirm OTP</Text>
             </Pressable>
             <Pressable onPress={() => {}} style={styles.resendButton}>
               <Text style={styles.resendText}>Resend OTP</Text>
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 100,
     flex: 1,
+    zIndex: 2,
   },
   logoImage: {
     width: 218,
@@ -163,20 +164,21 @@ const styles = StyleSheet.create({
     gap: 10,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    borderRadius: 20,
   },
   input: {
     // borderBottomColor: "black",
     // borderBottomWidth: 1,
     borderRadius: 10,
     width: 40,
-    heeight: 30,
+    heeight: 40,
     // backgroundColor: "#fcf2d3",
     paddingHorizontal: 10,
+    paddingVertical: 10,
     borderWidth: 1,
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
     textAlign: "center",
+    borderColor: "grey",
   },
   timeText: {
     color: "black",
@@ -208,6 +210,6 @@ const styles = StyleSheet.create({
   },
   footCont: {
     position: "relative",
-    top: 50,
+    top: 10,
   },
 });

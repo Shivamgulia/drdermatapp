@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
+
 import Home1 from "../../assets/home1.png";
 
 import SquareLogo from "../components/UI/SquareLogo";
@@ -24,6 +25,7 @@ export default function Main() {
     <SafeAreaView style={styles.container}>
       <Pressable onPress={goToLogin} style={styles.logoCont}>
         {/* <SquareLogo onPress={goToLogin} /> */}
+
         <Image source={Logo} style={styles.logoImage} />
       </Pressable>
       <View style={styles.bottomCont}>

@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
   bottomCont: {
     flex: 1.7,
     alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "flex-start",
+    gap: 50,
   },
   mainHead: {
     fontSize: 25,

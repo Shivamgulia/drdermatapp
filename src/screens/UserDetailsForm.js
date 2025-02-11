@@ -58,11 +58,11 @@ export default function UserDetailsForm() {
           />
         </View>
         <View style={styles.inputView}>
-          <Text style={styles.label}>Your Address</Text>
+          <Text style={styles.label}>Your Email</Text>
           <TextInput
             onChangeText={setAddress}
             value={address}
-            placeholder="Address"
+            placeholder="Enter your email"
             style={styles.input}
           />
         </View>
@@ -104,8 +104,8 @@ const styles = StyleSheet.create({
   },
   form: {
     alignItems: "center",
-
-    flex: 1,
+    backgroundColor: "white",
+    flex: 1.4,
   },
   signText: {
     fontSize: 30,
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
       "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 15px -3px",
     // backgroundColor: "#fcf2d3",
     borderWidth: 1,
+    borderColor: "grey",
   },
   generateButton: {
     color: "white",
