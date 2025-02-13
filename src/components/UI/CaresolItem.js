@@ -1,12 +1,22 @@
-import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from "react-native";
 import React from "react";
 
-export default function CaresolItem() {
+import { Dimensions } from "react-native";
+const windowWidth = Dimensions.get("window").width;
+
+export default function CaresolItem(item) {
   const { width } = useWindowDimensions();
+
   return (
-    <View style={{ width: width - 50 }}>
+    <View style={{ width: width / 2 + 20 }}>
       <View style={styles.cont}>
-        <Text>CaresolItem</Text>
+        <Image source={item.item.icon} style={styles.image} />
       </View>
     </View>
   );
@@ -15,7 +25,11 @@ export default function CaresolItem() {
 const styles = StyleSheet.create({
   cont: {
     height: 100,
-    backgroundColor: "red",
     margin: 20,
+  },
+  image: {
+    width: windowWidth / 2,
+    height: 100,
+    borderRadius: 10,
   },
 });
