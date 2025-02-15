@@ -6,7 +6,7 @@ import {
   View,
   Image,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 
 import Home1 from "../../assets/home1.png";
@@ -16,6 +16,18 @@ import Logo from "../../assets/drdermatlogo.jpeg";
 
 export default function Main() {
   const navigation = useNavigation();
+
+  useEffect(() => {
+    waitAndGo(() => {
+      navigation.navigate("Login");
+    });
+  }, []);
+
+  function waitAndGo(callback) {
+    setTimeout(() => {
+      callback();
+    }, 3000); // Waits for 3 seconds (3000 milliseconds)
+  }
 
   function goToLogin() {
     console.log("go to login");

@@ -24,12 +24,13 @@ export default function CaresolItem(item) {
 
 const styles = StyleSheet.create({
   cont: {
-    height: 100,
+    height: 130,
     margin: 20,
   },
   image: {
-    width: windowWidth / 2,
-    height: 100,
+    // width: windowWidth / 2,
+    width: 201,
+    height: 130,
     borderRadius: 10,
   },
 });

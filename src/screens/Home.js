@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -23,6 +23,8 @@ import BottomNav from "../components/UI/BottomNav";
 
 const Home = () => {
   const { width } = useWindowDimensions();
+
+  const [searchValue, setSearchValue] = useState();
 
   const carosalList = [
     {
@@ -176,24 +178,34 @@ const Home = () => {
               }}
             >
               <View style={styles.topButtons}>
-                <Icon name="location-sharp" size={20} color="#accef7" />
+                <Icon name="location-sharp" size={20} color="white" />
               </View>
-              <Text style={{ color: "white" }}>Address</Text>
+              <Text style={{ color: "white" }}>Area and City</Text>
             </Pressable>
             <Pressable>
               <View style={styles.topButtons}>
-                <Icon name="cart-outline" size={20} color="#accef7" />
+                <Icon name="cart-outline" size={20} color="white" />
               </View>
             </Pressable>
           </View>
-          <TextInput
-            placeholder="Search Clinics, Tests, Products"
-            style={styles.searchInput}
-          />
+          <View style={styles.inputView}>
+            <Text
+              style={{ position: "relative", top: 32, left: 40, zIndex: 2 }}
+            >
+              <Icon name="search" size={20} color="black" />
+            </Text>
+            <TextInput
+              placeholder="Search Clinics, Tests, Products"
+              style={styles.searchInput}
+              onChangeText={setSearchValue}
+              value={searchValue}
+            />
+          </View>
         </View>
         <View style={styles.posterCont}>
           <FlatList
             horizontal
+            showsHorizontalScrollIndicator={false}
             data={carosalList}
             keyExtractor={(item) => item.id}
             nestedScrollEnabled={true}
@@ -206,57 +218,91 @@ const Home = () => {
         </View>
 
         {/* Find Top Derma Clinic Section */}
-        <Text style={styles.sectionTitle}>Find Top Derma Clinic</Text>
-
-        <FlatList
-          // horizontal
-          data={clinicCategories}
-          keyExtractor={(item) => item.id}
-          nestedScrollEnabled={true}
-          numColumns={3}
-          renderItem={({ item }) => (
-            <View style={styles.clinicItem}>
-              <Image source={item.icon} style={styles.categoryIcon} />
-              <Text style={styles.clinicText}>{item.name}</Text>
-            </View>
-          )}
+        {/* <Text style={styles.sectionTitle}>Find Top Derma Clinic</Text> */}
+        <Image
+          source={require("../../assets/home/heading1.png")}
+          style={{ width: "100%", height: 30, marginVertical: 20 }}
         />
+        <View
+          style={{
+            justifyContent: "center",
+            marginLeft: "auto",
+            height: "13%",
+          }}
+        >
+          <FlatList
+            // horizontal
+            data={clinicCategories}
+            keyExtractor={(item) => item.id}
+            nestedScrollEnabled={true}
+            numColumns={3}
+            renderItem={({ item }) => (
+              <View style={styles.clinicItem}>
+                <Image source={item.icon} style={styles.categoryIcon} />
+                <Text style={styles.clinicText}>{item.name}</Text>
+              </View>
+            )}
+          />
+        </View>
 
         {/* Find Best Treatment Plans */}
-        <Text style={styles.sectionTitle}>Find Best Treatment Plans</Text>
-        <FlatList
-          // horizontal
-          data={clinicCategories}
-          keyExtractor={(item) => item.id}
-          nestedScrollEnabled={true}
-          numColumns={3}
-          renderItem={({ item }) => (
-            <View style={styles.clinicItem}>
-              <Image source={item.icon} style={styles.categoryIcon} />
-              <Text style={styles.clinicText}>{item.name}</Text>
-            </View>
-          )}
+        {/* <Text style={styles.sectionTitle}>Find Best Treatment Plans</Text> */}
+        <Image
+          source={require("../../assets/home/heading2.png")}
+          style={{ width: "100%", height: 30, marginVertical: 20 }}
         />
+        <View
+          style={{
+            justifyContent: "center",
+            marginLeft: "auto",
+            height: "13%",
+          }}
+        >
+          <FlatList
+            // horizontal
+            data={clinicCategories}
+            keyExtractor={(item) => item.id}
+            nestedScrollEnabled={true}
+            numColumns={3}
+            renderItem={({ item }) => (
+              <View style={styles.clinicItem}>
+                <Image source={item.icon} style={styles.categoryIcon} />
+                <Text style={styles.clinicText}>{item.name}</Text>
+              </View>
+            )}
+          />
+        </View>
 
         {/* Popular Product Categories */}
-        <Text style={styles.sectionTitle}>Popular Product Categories</Text>
-        <FlatList
-          numColumns={4}
-          // horizontal
-          data={productCategories}
-          keyExtractor={(item) => item.id}
-          nestedScrollEnabled={true}
-          renderItem={({ item }) => (
-            <View style={styles.catProductItem}>
-              <Image source={item.icon} style={styles.catProductIcon} />
-              <Text style={styles.catProductText}>{item.name}</Text>
-            </View>
-          )}
+        {/* <Text style={styles.sectionTitle}>Popular Product Categories</Text> */}
+        <Image
+          source={require("../../assets/home/heading3.png")}
+          style={{ width: "100%", height: 30, marginVertical: 20 }}
         />
+        <View style={styles.videoSection}>
+          <FlatList
+            numColumns={4}
+            // horizontal
+            data={productCategories}
+            keyExtractor={(item) => item.id}
+            nestedScrollEnabled={true}
+            renderItem={({ item }) => (
+              <View style={styles.catProductItem}>
+                <Image source={item.icon} style={styles.catProductIcon} />
+                <Text style={styles.catProductText}>{item.name}</Text>
+              </View>
+            )}
+          />
+        </View>
 
         {/* Offers Section */}
-        <Text style={styles.sectionTitle}>Offers</Text>
-        <FlatList
+        {/* <Text style={styles.sectionTitle}>Offers</Text> */}
+
+        <Image
+          source={require("../../assets/home/offers.png")}
+          style={{ width: "100%", height: 200 }}
+        />
+        {/* <FlatList
           data={offers}
           keyExtractor={(item) => item.id}
           nestedScrollEnabled={true}
@@ -269,10 +315,14 @@ const Home = () => {
               <Image source={offerImg} style={styles.offerImage} />
             </TouchableOpacity>
           )}
-        />
+        /> */}
 
         {/* Treatment Videos Reel */}
-        <Text style={styles.sectionTitle}>Treatment Videos Reel</Text>
+        {/* <Text style={styles.sectionTitle}>Treatment Videos Reel</Text> */}
+        <Image
+          source={require("../../assets/home/heading4.png")}
+          style={{ width: "100%", height: 40, marginVertical: 20 }}
+        />
         <View style={styles.videoSection}>
           <FlatList
             horizontal
@@ -289,7 +339,13 @@ const Home = () => {
                 <Image
                   // source={require("../../assets/video_sample.png")}
                   source={item.image}
-                  style={styles.videoThumbnail}
+                  style={[
+                    styles.videoThumbnail,
+                    {
+                      // boxShadow: "0px -8px 20px rgba(0, 0, 0, 0.2)",
+                      // zIndex: 2000000,
+                    },
+                  ]}
                 />
               </TouchableOpacity>
             )}
@@ -297,7 +353,12 @@ const Home = () => {
         </View>
 
         {/*Homey Stories */}
-        <Text style={styles.sectionTitle}>10 Lakh+ Happy Stories</Text>
+        {/* <Text style={styles.sectionTitle}>10 Lakh+ Happy Stories</Text> */}
+        <Image
+          source={require("../../assets/home/heading6.png")}
+          style={{ width: "100%", height: 40, marginVertical: 20 }}
+        />
+
         <View style={styles.videoSection}>
           <FlatList
             horizontal
@@ -322,14 +383,28 @@ const Home = () => {
         </View>
 
         {/* Footer Section */}
-        <View style={styles.footerSection}>
-          <Text style={styles.footerText}>
+        <View style={styles.footerSectionImage}>
+          {/* <Text style={styles.footerText}>
             You can look better with a small step right here!
-          </Text>
+          </Text> */}
+          <Image
+            source={require("../../assets/home/bottomfoter.png")}
+            style={{ width: "100%", height: 400 }}
+          />
         </View>
-        <Image source={backbottom} style={styles.bottomimg} />
+        {/* <Image source={backbottom} style={styles.bottomimg} /> */}
       </ScrollView>
-      <View>
+      <View
+        style={{
+          borderTopEndRadius: 36,
+          borderTopLeftRadius: 36,
+          position: "absolute",
+          bottom: 0,
+          backgroundColor: "white",
+          width: "100%",
+          height: 66,
+        }}
+      >
         <BottomNav />
       </View>
     </View>
@@ -339,7 +414,11 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f9f9f9",
+    // backgroundColor: "#f9f9f9",
+    backgroundColor: "#ffffff",
+  },
+  scrollView: {
+    justifyContent: "center",
   },
   buttonCont: {
     flexDirection: "row",
@@ -356,7 +435,9 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     height: 250,
-    justifyContent: "space-evenly",
+    gap: 20,
+    // justifyContent: "space-between",
+    // paddingBottom: 70,
     // margin: 10,
   },
   topButtons: {
@@ -364,10 +445,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#155e95",
     padding: 10,
   },
+  inputView: {},
   searchInput: {
     backgroundColor: "#ffffff",
     borderRadius: 8,
     padding: 12,
+    paddingHorizontal: 40,
+    backgroundColor: "#fdf3d4",
+    borderRadius: 24,
+    marginHorizontal: 30,
+    boxShadow:
+      "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
   },
   posterCont: {
     position: "relative",
@@ -381,8 +469,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     padding: 16,
     textAlign: "center",
-    borderBottomWidth: 1,
-    borderRadius: 50,
+    // borderBottomWidth: 1,
+    borderRadius: 1000,
+    // width: "50%",
+    paddingBottom: 5,
+
+    // textDecorationLine: "underline",
   },
   clinicItem: {
     // alignItems: "center",
@@ -448,6 +540,7 @@ const styles = StyleSheet.create({
   },
   videoSection: {
     alignItems: "center",
+
     marginVertical: 16,
     gap: 100,
   },
@@ -471,13 +564,23 @@ const styles = StyleSheet.create({
     height: 200,
     zIndex: 2,
   },
+  footerSectionImage: {
+    padding: 16,
+    alignItems: "center",
+    bottom: 0,
+    // position: "absolute",
+    height: 500,
+
+    zIndex: 2,
+    marginBottom: 100,
+  },
   footerText: {
     fontSize: 40,
     color: "#155e95",
     fontWeight: "bold",
   },
   bottomimg: {
-    height: 200,
+    height: 400,
   },
 });
 
