@@ -20,6 +20,7 @@ export default function Main() {
   useEffect(() => {
     waitAndGo(() => {
       navigation.navigate("Login");
+      // navigation.navigate("Dashboard");
     });
   }, []);
 
@@ -31,6 +32,7 @@ export default function Main() {
 
   function goToLogin() {
     console.log("go to login");
+    // navigation.navigate("Dashboard");
     navigation.navigate("Login");
   }
   return (
