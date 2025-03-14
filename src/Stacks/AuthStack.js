@@ -14,6 +14,9 @@ import Intro1 from "../screens/Intro1";
 // import Intro2 from "../screens/Intro2";
 // import Intro3 from "../screens/Intro3";
 import Home from "../screens/Home";
+import Cart from "../screens/Cart";
+import Thankyou from "../screens/Thankyou";
+import ChooseConcern from "../screens/ChooseConcern";
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +72,21 @@ const AuthStack = () => {
       <Stack.Screen
         name="Dashboard"
         component={Home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Cart"
+        component={Cart}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Thankyou"
+        component={Thankyou}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Concern"
+        component={ChooseConcern}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

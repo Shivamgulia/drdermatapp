@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/FontAwesome";
 import FoundationIcon from "react-native-vector-icons/Foundation";
 import FontAwesome6 from "react-native-vector-icons/FontAwesome6";
+import { useNavigation } from "@react-navigation/native";
 
 export default function BottomNav() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.cont}>
       <View style={styles.navItem}>
@@ -25,10 +28,15 @@ export default function BottomNav() {
         <FontAwesome6 name="user-doctor" size={37} color="#515C71" />
         <Text style={styles.navText}>Treatment</Text>
       </View>
-      <View style={styles.navItem}>
+      <Pressable
+        style={styles.navItem}
+        onPress={() => {
+          navigation.navigate("Cart");
+        }}
+      >
         <Icon name="user-o" size={37} color="#515C71" />
         <Text style={styles.navText}>Profile</Text>
-      </View>
+      </Pressable>
     </View>
   );
 }
