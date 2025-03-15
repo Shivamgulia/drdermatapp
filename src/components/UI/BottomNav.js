@@ -10,10 +10,15 @@ export default function BottomNav() {
 
   return (
     <View style={styles.cont}>
-      <View style={styles.navItem}>
+      <Pressable
+        style={styles.navItem}
+        onPress={() => {
+          navigation.navigate("Dashboard");
+        }}
+      >
         <FoundationIcon name="home" size={37} color="#515C71" />
         <Text style={styles.navText}>Home</Text>
-      </View>
+      </Pressable>
       <Pressable
         style={styles.navItem}
         onPress={() => {
