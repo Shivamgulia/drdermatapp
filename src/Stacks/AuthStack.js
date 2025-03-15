@@ -17,6 +17,9 @@ import Home from "../screens/Home";
 import Cart from "../screens/Cart";
 import Thankyou from "../screens/Thankyou";
 import ChooseConcern from "../screens/ChooseConcern";
+import AdditionalConcern from "../screens/AdditionalConcern";
+import ImportantConcern from "../screens/ImportantConcern";
+import UserProfile from "../screens/UserProfile";
 
 const Stack = createNativeStackNavigator();
 
@@ -87,6 +90,21 @@ const AuthStack = () => {
       <Stack.Screen
         name="Concern"
         component={ChooseConcern}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="AddConcern"
+        component={AdditionalConcern}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ImpConcern"
+        component={ImportantConcern}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={UserProfile}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

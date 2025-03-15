@@ -2,8 +2,10 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 import BottomNav from "../components/UI/BottomNav";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ChooseConcern() {
+  const navigation = useNavigation();
   return (
     <>
       <View style={{ flex: 1, backgroundColor: "#155e95" }}>
@@ -57,14 +59,14 @@ export default function ChooseConcern() {
               </Text>
 
               <Pressable
+                onPress={() => {
+                  navigation.navigate("AddConcern");
+                }}
                 style={{
                   backgroundColor: "#155e95",
                   paddingVertical: 4,
                   paddingHorizontal: 8,
                   borderRadius: 30,
-                }}
-                onPress={() => {
-                  navigation.navigate("Concern");
                 }}
               >
                 <Text style={{ color: "white", fontSize: 12 }}>Click Here</Text>
@@ -103,14 +105,14 @@ export default function ChooseConcern() {
               </Text>
 
               <Pressable
+                onPress={() => {
+                  navigation.navigate("AddConcern");
+                }}
                 style={{
                   backgroundColor: "#155e95",
                   paddingVertical: 4,
                   paddingHorizontal: 8,
                   borderRadius: 30,
-                }}
-                onPress={() => {
-                  navigation.navigate("Concern");
                 }}
               >
                 <Text style={{ color: "white", fontSize: 12 }}>Click Here</Text>

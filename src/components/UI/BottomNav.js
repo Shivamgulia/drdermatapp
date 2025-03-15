@@ -14,24 +14,34 @@ export default function BottomNav() {
         <FoundationIcon name="home" size={37} color="#515C71" />
         <Text style={styles.navText}>Home</Text>
       </View>
-      <View style={styles.navItem}>
+      <Pressable
+        style={styles.navItem}
+        onPress={() => {
+          navigation.navigate("AddConcern");
+        }}
+      >
         <FoundationIcon name="clipboard" size={37} color="#515C71" />
         <Text style={styles.navText}>Book Apointment</Text>
-      </View>
+      </Pressable>
       <View style={styles.centerNav}>
         <View style={styles.centerNavItem}>
           <Icon name="folder-open" size={46} color="#515C71" />
           <Text style={styles.centerNavText}>Your result</Text>
         </View>
       </View>
-      <View style={styles.navItem}>
-        <FontAwesome6 name="user-doctor" size={37} color="#515C71" />
-        <Text style={styles.navText}>Treatment</Text>
-      </View>
       <Pressable
         style={styles.navItem}
         onPress={() => {
           navigation.navigate("Cart");
+        }}
+      >
+        <FontAwesome6 name="user-doctor" size={37} color="#515C71" />
+        <Text style={styles.navText}>Treatment</Text>
+      </Pressable>
+      <Pressable
+        style={styles.navItem}
+        onPress={() => {
+          navigation.navigate("Profile");
         }}
       >
         <Icon name="user-o" size={37} color="#515C71" />
