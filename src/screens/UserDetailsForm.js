@@ -43,8 +43,8 @@ export default function UserDetailsForm() {
       <View style={styles.imgCont}>
         <Image source={UserForm} style={styles.mainImage} />
       </View>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
+      <View
+        // behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.form}
       >
         <Text style={styles.signText}>Add your information ....</Text>
@@ -69,7 +69,7 @@ export default function UserDetailsForm() {
         <Pressable onPress={confirmOTP} style={styles.generateButton}>
           <Text style={styles.generateText}>Continue</Text>
         </Pressable>
-      </KeyboardAvoidingView>
+      </View>
     </SafeAreaView>
   );
 }
@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
   form: {
     alignItems: "center",
     backgroundColor: "white",
-    flex: 1.4,
+    flex: 1.2,
+    backgroundColor: "white",
   },
   signText: {
     fontSize: 30,
@@ -138,9 +139,10 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 20,
     width: windowWidth - 40,
+    paddingLeft: 20,
 
-    boxShadow:
-      "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 15px -3px",
+    // boxShadow:
+    //   "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 15px -3px",
     // backgroundColor: "#fcf2d3",
     borderWidth: 1,
     borderColor: "grey",

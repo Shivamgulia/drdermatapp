@@ -14,29 +14,29 @@ import LogoButton from "../components/UI/LogoButton";
 import Otp1 from "../../assets/otp1.png";
 import { useNavigation } from "@react-navigation/native";
 import Logo from "../../assets/drdermatlogo.jpeg";
+import OTPInput from "../components/UI/OtpInput";
 
 export default function Confirmotp() {
-  const [digit1, setDigit1] = useState();
-  const [digit2, setDigit2] = useState();
-  const [digit3, setDigit3] = useState();
-  const [digit4, setDigit4] = useState();
-  const [digit5, setDigit5] = useState();
-  const [digit6, setDigit6] = useState();
+  const [otp, setOtp] = useState([]);
 
   const navigation = useNavigation();
 
   function confirmOTP() {
     navigation.navigate("Selectcity");
+    let newOtp = "";
+    otp.map((item) => {
+      newOtp += item;
+    });
+    console.log(newOtp);
   }
   return (
     <View style={styles.container}>
       <View style={styles.logoCont}>
-        {/* <LogoButton onPress={() => {}} /> */}
         <Image source={Logo} style={styles.logoImage} />
       </View>
       <View style={styles.formCont}>
         <Image source={Otp1} style={styles.mainImage} />
-        {/* <Text style={styles.signText}>Sign In To Continue</Text> */}
+
         <View style={styles.bottomForm}>
           <Text style={styles.numberText}>Verify mobile number ...</Text>
           <KeyboardAvoidingView
@@ -44,48 +44,7 @@ export default function Confirmotp() {
             style={styles.form}
           >
             <View style={styles.inputView}>
-              <TextInput
-                onChangeText={setDigit1}
-                value={digit1}
-                keyboardType="numeric"
-                style={styles.input}
-                maxLength={1}
-              />
-              <TextInput
-                onChangeText={setDigit2}
-                value={digit2}
-                keyboardType="numeric"
-                style={styles.input}
-                maxLength={1}
-              />
-              <TextInput
-                onChangeText={setDigit3}
-                value={digit3}
-                keyboardType="numeric"
-                style={styles.input}
-                maxLength={1}
-              />
-              <TextInput
-                onChangeText={setDigit4}
-                value={digit4}
-                keyboardType="numeric"
-                style={styles.input}
-                maxLength={1}
-              />
-              <TextInput
-                onChangeText={setDigit5}
-                value={digit5}
-                keyboardType="numeric"
-                style={styles.input}
-                maxLength={1}
-              />
-              <TextInput
-                onChangeText={setDigit6}
-                value={digit6}
-                keyboardType="numeric"
-                style={styles.input}
-                maxLength={1}
-              />
+              <OTPInput length={6} updateOtp={setOtp} />
             </View>
 
             <Text style={styles.timeText}>
@@ -139,7 +98,6 @@ const styles = StyleSheet.create({
     height: 250,
   },
   form: {
-    // backgroundColor: "#ebf1cf",
     alignItems: "center",
     gap: 20,
   },
@@ -159,19 +117,17 @@ const styles = StyleSheet.create({
   inputView: {
     display: "flex",
     flexDirection: "row",
-    // backgroundColor: "#ebf1cf",
+
     alignItems: "center",
     gap: 10,
     paddingHorizontal: 16,
     paddingVertical: 8,
   },
   input: {
-    // borderBottomColor: "black",
-    // borderBottomWidth: 1,
     borderRadius: 10,
     width: 40,
     heeight: 40,
-    // backgroundColor: "#fcf2d3",
+
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderWidth: 1,
