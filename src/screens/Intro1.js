@@ -42,12 +42,12 @@ export default function Intro1() {
     navigation.navigate("Dashboard");
   }
   return (
-    <SafeAreaView style={styles.cont}>
+    <View style={styles.cont}>
       <View style={styles.logoCont}>
         {/* <LogoButton onPress={() => {}} /> */}
         <Image source={Logo} style={styles.logoImage} />
       </View>
-      <View style={{ width: windowWidth, flex: 2 }}>
+      <View style={{ width: windowWidth, height: 400 }}>
         <FlatList
           ref={listRef}
           data={[
@@ -76,7 +76,7 @@ export default function Intro1() {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => {
             return (
-              <View style={{ width: windowWidth }}>
+              <View style={{ width: windowWidth, height: 400 }}>
                 <View style={styles.imageCont}>
                   <Image source={item.image} style={styles.image} />
                 </View>
@@ -130,7 +130,7 @@ export default function Intro1() {
         </View>
       </View>
 
-      <View style={{ flex: 1, marginTop: 30 }}>
+      <View style={{ marginTop: 30 }}>
         {currentIndex != 2 && (
           <Pressable style={styles.button} onPress={scrollNext}>
             <Text style={styles.text}>Next</Text>
@@ -142,20 +142,21 @@ export default function Intro1() {
           </Pressable>
         )}
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   cont: {
     backgroundColor: "white",
-    flex: 1,
-    justifyContent: "center",
+    width: windowWidth,
+    height: windowHeight,
+    justifyContent: "space-evenly",
     alignItems: "center",
   },
   logoCont: {
     paddingTop: 50,
-    flex: 1,
+    height: 100,
   },
   logoImage: {
     width: 218,
@@ -163,18 +164,16 @@ const styles = StyleSheet.create({
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 9px 18px -18px",
   },
-  imageCont: { flex: 2, alignItems: "center" },
+  imageCont: { alignItems: "center", height: 300 },
   image: {
     width: 300,
     height: 300,
   },
   bottomCont: {
-    flex: 1.7,
     alignItems: "center",
     justifyContent: "flex-start",
     gap: 50,
-    position: "absolute",
-    bottom: 40,
+    height: 300,
   },
   mainHead: {
     fontSize: 25,

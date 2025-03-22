@@ -39,8 +39,8 @@ export default function Confirmotp() {
 
         <View style={styles.bottomForm}>
           <Text style={styles.numberText}>Verify mobile number ...</Text>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
+          <View
+            // behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.form}
           >
             <View style={styles.inputView}>
@@ -56,7 +56,7 @@ export default function Confirmotp() {
             <Pressable onPress={() => {}} style={styles.resendButton}>
               <Text style={styles.resendText}>Resend OTP</Text>
             </Pressable>
-          </KeyboardAvoidingView>
+          </View>
         </View>
       </View>
       <View style={styles.footCont}>

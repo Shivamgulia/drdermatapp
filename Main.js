@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./src/store/authContext";
@@ -9,6 +9,14 @@ import AuthStack from "./src/Stacks/AuthStack";
 // import UserStack from "./src/Stacks/UserStack";
 // import Navbar from "./src/components/Navbar/Navbar";
 // import Loading from "./src/components/UI/Loading";
+
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "white",
+  },
+};
 
 export default function Main() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -45,7 +53,7 @@ export default function Main() {
 
   return (
     <>
-      <NavigationContainer>
+      <NavigationContainer theme={MyTheme}>
         {/* {!loggedIn && <AuthStack />} */}
         <AuthStack />
         {/* {loggedIn && <UserStack />} */}
