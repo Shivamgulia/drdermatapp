@@ -164,7 +164,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView style={styles.container}>
         {/* Search Bar */}
         <Image source={topBack} style={[styles.topBack, { width }]} />
         <View style={styles.searchSection}>
@@ -389,7 +389,7 @@ const Home = () => {
           </Text> */}
           <Image
             source={require("../../assets/home/bottomfoter.png")}
-            style={{ width: "100%", height: 400 }}
+            style={{ width: width, height: width }}
           />
         </View>
         {/* <Image source={backbottom} style={styles.bottomimg} /> */}
@@ -565,7 +565,8 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   footerSectionImage: {
-    padding: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 0,
     alignItems: "center",
     bottom: 0,
     // position: "absolute",

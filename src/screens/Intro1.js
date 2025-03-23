@@ -72,6 +72,10 @@ export default function Intro1() {
           ]}
           onScroll={handleScroll}
           horizontal
+          pagingEnabled
+          snapToAlignment="center"
+          snapToInterval={windowWidth}
+          decelerationRate="fast"
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => {
@@ -164,10 +168,10 @@ const styles = StyleSheet.create({
     boxShadow:
       "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 9px 18px -18px",
   },
-  imageCont: { alignItems: "center", height: 300 },
+  imageCont: { alignItems: "center", height: 300, justifyContent: "flex-end" },
   image: {
-    width: 300,
-    height: 300,
+    width: 225,
+    height: 225,
   },
   bottomCont: {
     alignItems: "center",
