@@ -19,7 +19,7 @@ export default function Main() {
 
   useEffect(() => {
     waitAndGo(() => {
-      navigation.navigate("Login");
+      navigation.navigate("ChooseRole");
       // navigation.navigate("Dashboard");
     });
   }, []);
@@ -31,9 +31,9 @@ export default function Main() {
   }
 
   function goToLogin() {
-    console.log("go to login");
+    console.log("go to ChooseRole");
     // navigation.navigate("Dashboard");
-    navigation.navigate("Login");
+    navigation.navigate("ChooseRole");
   }
   return (
     <SafeAreaView style={styles.container}>

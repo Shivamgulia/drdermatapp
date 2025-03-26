@@ -28,12 +28,17 @@ export default function BottomNav() {
         <FoundationIcon name="clipboard" size={37} color="#515C71" />
         <Text style={styles.navText}>Book Apointment</Text>
       </Pressable>
-      <View style={styles.centerNav}>
+      <Pressable
+        style={styles.centerNav}
+        onPress={() => {
+          navigation.navigate("AddClinic");
+        }}
+      >
         <View style={styles.centerNavItem}>
           <Icon name="folder-open" size={46} color="#515C71" />
           <Text style={styles.centerNavText}>Your result</Text>
         </View>
-      </View>
+      </Pressable>
       <Pressable
         style={styles.navItem}
         onPress={() => {
