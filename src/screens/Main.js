@@ -19,7 +19,7 @@ export default function Main() {
 
   useEffect(() => {
     waitAndGo(() => {
-      navigation.navigate("ChooseRole");
+      navigation.navigate("Clinic");
       // navigation.navigate("Dashboard");
     });
   }, []);
@@ -33,7 +33,8 @@ export default function Main() {
   function goToLogin() {
     console.log("go to ChooseRole");
     // navigation.navigate("Dashboard");
-    navigation.navigate("ChooseRole");
+    // navigation.navigate("ChooseRole");
+    navigation.navigate("Clinic");
   }
   return (
     <SafeAreaView style={styles.container}>

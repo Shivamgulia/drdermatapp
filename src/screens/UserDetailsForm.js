@@ -4,9 +4,7 @@ import {
   SafeAreaView,
   Pressable,
   View,
-  KeyboardAvoidingView,
   TextInput,
-  Platform,
   Image,
 } from "react-native";
 import React, { useState } from "react";
@@ -83,8 +81,8 @@ const styles = StyleSheet.create({
   },
   logoCont: {
     // position: "absolute",
-    top: 60,
-    flex: 0.3,
+    top: 40,
+    flex: 0.1,
   },
   logoImage: {
     width: 218,

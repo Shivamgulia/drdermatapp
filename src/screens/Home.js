@@ -195,8 +195,10 @@ const Home = () => {
               <Icon name="search" size={20} color="black" />
             </Text>
             <TextInput
-              placeholder="Search Clinics, Tests, Products"
-              style={styles.searchInput}
+              placeholder={
+                width < 500 ? "Search Clinics, Tests, Products" : "Search"
+              }
+              style={[styles.searchInput]}
               onChangeText={setSearchValue}
               value={searchValue}
             />

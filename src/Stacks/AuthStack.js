@@ -22,6 +22,7 @@ import ImportantConcern from "../screens/ImportantConcern";
 import UserProfile from "../screens/UserProfile";
 import ChooseRole from "../screens/ChooseRole";
 import AddClinic from "../screens/AddClinic";
+import ClinicItem from "../screens/ClinicItem";
 
 const Stack = createNativeStackNavigator();
 
@@ -117,6 +118,11 @@ const AuthStack = () => {
       <Stack.Screen
         name="AddClinic"
         component={AddClinic}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Clinic"
+        component={ClinicItem}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
