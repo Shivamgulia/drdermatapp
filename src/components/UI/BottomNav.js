@@ -22,7 +22,7 @@ export default function BottomNav() {
       <Pressable
         style={styles.navItem}
         onPress={() => {
-          navigation.navigate("AddConcern");
+          navigation.navigate("Concern");
         }}
       >
         <FoundationIcon name="clipboard" size={37} color="#515C71" />

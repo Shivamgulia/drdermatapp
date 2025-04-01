@@ -1,14 +1,4 @@
-import {
-  View,
-  Text,
-  Platform,
-  SafeAreaView,
-  StyleSheet,
-  Pressable,
-  TextInput,
-  KeyboardAvoidingView,
-  Image,
-} from "react-native";
+import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import React, { useState } from "react";
 import LogoButton from "../components/UI/LogoButton";
 import Otp1 from "../../assets/otp1.png";
@@ -77,9 +67,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logoCont: {
-    position: "absolute",
     top: 100,
-    flex: 1,
+
     zIndex: 2,
   },
   logoImage: {

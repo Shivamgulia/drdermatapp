@@ -1,6 +1,7 @@
 import {
   FlatList,
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -135,138 +136,141 @@ export default function UserProfile() {
               </TouchableOpacity>
             </View>
           </View>
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "flex-end",
-              paddingRight: 40,
-              paddingTop: 30,
-            }}
-          >
-            <FlatList
-              data={OPTIONS1}
-              keyExtractor={(item) => item.id}
-              renderItem={(item) => {
-                return (
-                  <TouchableOpacity
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "flex-end",
-                      gap: 10,
-                      paddingVertical: 5,
-                    }}
-                  >
-                    <Text
-                      style={{
-                        textAlign: "right",
-                        color: "#505c6f",
-                        fontSize: 20,
-                      }}
-                    >
-                      {item.item.text}
-                    </Text>
-                    <View
-                      style={{
-                        width: 30,
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Icon name={item.item.icon} size={20} color="black" />
-                    </View>
-                  </TouchableOpacity>
-                );
-              }}
-            />
-
-            {/* line */}
-
+          <ScrollView>
             <View
               style={{
-                width: windowWidth,
-                backgroundColor: "#ececec",
-                height: 10,
-                position: "relative",
-                left: 40,
-                marginVertical: 10,
-              }}
-            ></View>
-
-            <FlatList
-              data={OPTIONS2}
-              keyExtractor={(item) => item.id}
-              renderItem={(item) => {
-                return (
-                  <TouchableOpacity
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "flex-end",
-                      gap: 10,
-                      paddingVertical: 5,
-                    }}
-                  >
-                    <Text
-                      style={{
-                        textAlign: "right",
-                        color: "#505c6f",
-                        fontSize: 20,
-                      }}
-                    >
-                      {item.item.text}
-                    </Text>
-                    <View
-                      style={{
-                        width: 30,
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Icon name={item.item.icon} size={20} color="black" />
-                    </View>
-                  </TouchableOpacity>
-                );
-              }}
-            />
-          </View>
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: 40,
-            }}
-          >
-            <TouchableOpacity
-              style={{
-                flexDirection: "row",
-                gap: 10,
-                backgroundColor: "#155e95",
-                paddingVertical: 5,
-                paddingHorizontal: 5,
-                paddingLeft: 20,
-                alignItems: "center",
-                borderRadius: 20,
+                justifyContent: "center",
+                alignItems: "flex-end",
+                paddingRight: 40,
+                paddingTop: 30,
               }}
             >
-              <Text style={{ color: "white", fontSize: 20, fontWeight: 700 }}>
-                Logout
-              </Text>
-              <Text
+              <FlatList
+                data={OPTIONS1}
+                keyExtractor={(item) => item.id}
+                renderItem={(item) => {
+                  return (
+                    <TouchableOpacity
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "flex-end",
+                        gap: 10,
+                        paddingVertical: 5,
+                      }}
+                    >
+                      <Text
+                        style={{
+                          textAlign: "right",
+                          color: "#505c6f",
+                          fontSize: 20,
+                        }}
+                      >
+                        {item.item.text}
+                      </Text>
+                      <View
+                        style={{
+                          width: 30,
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Icon name={item.item.icon} size={20} color="black" />
+                      </View>
+                    </TouchableOpacity>
+                  );
+                }}
+              />
+
+              {/* line */}
+
+              <View
                 style={{
-                  color: "#155e95",
-                  backgroundColor: "white",
-                  padding: 10,
-                  paddingVertical: 2,
-                  borderRadius: 100,
-                  fontWeight: "bold",
-                  fontSize: 20,
+                  width: windowWidth,
+                  backgroundColor: "#ececec",
+                  height: 10,
+                  position: "relative",
+                  left: 40,
+                  marginVertical: 10,
+                }}
+              ></View>
+
+              <FlatList
+                data={OPTIONS2}
+                keyExtractor={(item) => item.id}
+                renderItem={(item) => {
+                  return (
+                    <TouchableOpacity
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "flex-end",
+                        gap: 10,
+                        paddingVertical: 5,
+                      }}
+                    >
+                      <Text
+                        style={{
+                          textAlign: "right",
+                          color: "#505c6f",
+                          fontSize: 20,
+                        }}
+                      >
+                        {item.item.text}
+                      </Text>
+                      <View
+                        style={{
+                          width: 30,
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Icon name={item.item.icon} size={20} color="black" />
+                      </View>
+                    </TouchableOpacity>
+                  );
+                }}
+              />
+            </View>
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: 40,
+              }}
+            >
+              <TouchableOpacity
+                style={{
+                  flexDirection: "row",
+                  gap: 10,
+                  backgroundColor: "#155e95",
+                  paddingVertical: 5,
+                  paddingHorizontal: 5,
+                  paddingLeft: 20,
+                  alignItems: "center",
+                  borderRadius: 20,
                 }}
               >
-                {">"}
-              </Text>
-            </TouchableOpacity>
-          </View>
+                <Text style={{ color: "white", fontSize: 20, fontWeight: 700 }}>
+                  Logout
+                </Text>
+                <Text
+                  style={{
+                    color: "#155e95",
+                    backgroundColor: "white",
+                    padding: 10,
+                    paddingVertical: 2,
+                    borderRadius: 100,
+                    fontWeight: "bold",
+                    fontSize: 20,
+                  }}
+                >
+                  {">"}
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{ height: 100 }}></View>
+          </ScrollView>
         </View>
         <View style={{ flex: 1 }}></View>
       </View>

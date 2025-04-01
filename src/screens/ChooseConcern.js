@@ -4,6 +4,9 @@ import React from "react";
 import BottomNav from "../components/UI/BottomNav";
 import { useNavigation } from "@react-navigation/native";
 
+import { Dimensions } from "react-native";
+const windowWidth = Dimensions.get("window").width;
+
 export default function ChooseConcern() {
   const navigation = useNavigation();
   return (
@@ -21,15 +24,16 @@ export default function ChooseConcern() {
           <View
             style={{
               paddingTop: 80,
-              paddingHorizontal: 40,
+              width: windowWidth,
               flexDirection: "row",
-              gap: 30,
+              alignItems: "center",
+              justifyContent: "space-evenly",
             }}
           >
             <View
               style={{
                 backgroundColor: "#fcf2d3",
-                width: 150,
+                width: windowWidth / 2 - 70,
                 justifyContent: "center",
                 alignItems: "center",
                 paddingBottom: 15,
@@ -75,7 +79,7 @@ export default function ChooseConcern() {
             <View
               style={{
                 backgroundColor: "#fcf2d3",
-                width: 150,
+                width: windowWidth / 2 - 70,
                 justifyContent: "center",
                 alignItems: "center",
                 paddingBottom: 15,

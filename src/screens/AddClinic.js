@@ -1,10 +1,18 @@
-import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import BottomNav from "../components/UI/BottomNav";
 
 import Icon from "react-native-vector-icons/Entypo";
 
 import { Dimensions } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 const windowWidth = Dimensions.get("window").width;
 
 export default function AddClinic() {
@@ -16,6 +24,11 @@ export default function AddClinic() {
   const [desc, setDesc] = useState("");
 
   console.log(name, link, address, contactNumber, whatsappNumber);
+
+  const navigation = useNavigation();
+  function getVerified() {
+    navigation.navigate("Clinic");
+  }
 
   return (
     <>
@@ -117,7 +130,8 @@ export default function AddClinic() {
             <Icon name="plus" size={50} />
           </View>
         </View>
-        <View
+        <TouchableOpacity
+          onPress={getVerified}
           style={{
             justifyContent: "center",
             alignItems: "center",
@@ -137,7 +151,7 @@ export default function AddClinic() {
           >
             Get Verified
           </Text>
-        </View>
+        </TouchableOpacity>
       </ScrollView>
       <View
         style={{

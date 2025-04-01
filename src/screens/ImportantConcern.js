@@ -155,7 +155,8 @@ export default function ImportantConcern() {
                   borderRadius: 30,
                 }}
                 onPress={() => {
-                  navigation.navigate("Concern");
+                  // navigation.navigate("Concern");
+                  navigation.navigate("Thankyou");
                 }}
               >
                 <Text
@@ -170,6 +171,7 @@ export default function ImportantConcern() {
                 </Text>
               </Pressable>
             </View>
+            <View style={{ height: 200 }}></View>
           </ScrollView>
         </View>
       </View>

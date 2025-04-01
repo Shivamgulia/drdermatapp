@@ -135,7 +135,7 @@ export default function AdditionalConcern() {
                 gap: 30,
               }}
             >
-              <Pressable
+              <TouchableOpacity
                 style={{
                   backgroundColor: "#155e95",
                   paddingVertical: 10,
@@ -151,13 +151,14 @@ export default function AdditionalConcern() {
                 >
                   Next
                 </Text>
-              </Pressable>
+              </TouchableOpacity>
               <Pressable onPress={() => {}}>
                 <Text style={{ color: "#b0b1b1", fontWeight: "bold" }}>
                   I Don't Have a Concern
                 </Text>
               </Pressable>
             </View>
+            <View style={{ height: 200 }}></View>
           </ScrollView>
         </View>
       </View>

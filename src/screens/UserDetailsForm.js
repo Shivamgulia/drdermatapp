@@ -33,7 +33,7 @@ export default function UserDetailsForm() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.logoCont}>
         {/* <LogoButton onPress={() => {}} /> */}
         <Image source={Logo} style={styles.logoImage} />
@@ -68,7 +68,7 @@ export default function UserDetailsForm() {
           <Text style={styles.generateText}>Continue</Text>
         </Pressable>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -80,9 +80,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logoCont: {
-    // position: "absolute",
     top: 40,
-    flex: 0.1,
   },
   logoImage: {
     width: 218,
@@ -91,7 +89,6 @@ const styles = StyleSheet.create({
       "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 9px 18px -18px",
   },
   imgCont: {
-    flex: 0.7,
     marginTop: 150,
     alignItems: "center",
     gap: 40,
@@ -103,7 +100,7 @@ const styles = StyleSheet.create({
   form: {
     alignItems: "center",
     backgroundColor: "white",
-    flex: 1.2,
+
     backgroundColor: "white",
   },
   signText: {

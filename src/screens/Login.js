@@ -34,7 +34,7 @@ export default function Login() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.logoCont}>
         {/* <LogoButton onPress={() => {}} /> */}
         <Image source={Logo} style={styles.logoImage} />
@@ -44,10 +44,7 @@ export default function Login() {
         <View style={styles.textCont}>
           <Text style={styles.signText}>Sign In To Continue</Text>
         </View>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={styles.form}
-        >
+        <View style={styles.form}>
           <View style={styles.label}>
             <Text style={styles.labelText}>Enter 10 digit Mobile Number</Text>
           </View>
@@ -67,7 +64,7 @@ export default function Login() {
           {/* <Pressable onPress={navigateLogin} style={styles.generateButton}> */}
           {/* <Text style={styles.generateText}>Login</Text> */}
           {/* </Pressable> */}
-        </KeyboardAvoidingView>
+        </View>
       </View>
       <View style={styles.footCont}>
         <Text style={styles.footer}>
@@ -75,7 +72,7 @@ export default function Login() {
           agree to Cureskin's Privacy Policy and Terms of Service
         </Text>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -87,8 +84,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logoCont: {
-    position: "absolute",
-    top: 100,
+    top: 50,
     flex: 1,
   },
   logoImage: {
@@ -98,6 +94,7 @@ const styles = StyleSheet.create({
       "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 9px 18px -18px",
   },
   formCont: {
+    flex: 4,
     marginTop: 150,
     alignItems: "center",
     // gap: 20,
@@ -176,5 +173,6 @@ const styles = StyleSheet.create({
   footCont: {
     position: "relative",
     top: 50,
+    flex: 1,
   },
 });
