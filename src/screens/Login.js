@@ -34,38 +34,39 @@ export default function Login() {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.logoCont}>
-        {/* <LogoButton onPress={() => {}} /> */}
-        <Image source={Logo} style={styles.logoImage} />
-      </View>
-      <View style={styles.formCont}>
-        <Image source={Signup1} style={styles.mainImage} />
-        <View style={styles.textCont}>
-          <Text style={styles.signText}>Sign In To Continue</Text>
+    <View style={{ flex: 1 }}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.container}
+      >
+        <View style={styles.logoCont}>
+          <Image source={Logo} style={styles.logoImage} />
         </View>
-        <View style={styles.form}>
-          <View style={styles.label}>
-            <Text style={styles.labelText}>Enter 10 digit Mobile Number</Text>
+        <View style={styles.formCont}>
+          <Image source={Signup1} style={styles.mainImage} />
+          <View style={styles.textCont}>
+            <Text style={styles.signText}>Sign In To Continue</Text>
           </View>
-          <View style={styles.inputView}>
-            <Text style={styles.input}>+91</Text>
-            <TextInput
-              onChangeText={setNumber}
-              value={number}
-              placeholder="Mobile Number"
-              keyboardType="numeric"
-              style={styles.input}
-            />
+          <View style={styles.form}>
+            <View style={styles.label}>
+              <Text style={styles.labelText}>Enter 10 digit Mobile Number</Text>
+            </View>
+            <View style={styles.inputView}>
+              <Text style={styles.input}>+91</Text>
+              <TextInput
+                onChangeText={setNumber}
+                value={number}
+                placeholder="Mobile Number"
+                keyboardType="numeric"
+                style={styles.input}
+              />
+            </View>
+            <Pressable onPress={confirmOTP} style={styles.generateButton}>
+              <Text style={styles.generateText}>Get Verfication Code</Text>
+            </Pressable>
           </View>
-          <Pressable onPress={confirmOTP} style={styles.generateButton}>
-            <Text style={styles.generateText}>Get Verfication Code</Text>
-          </Pressable>
-          {/* <Pressable onPress={navigateLogin} style={styles.generateButton}> */}
-          {/* <Text style={styles.generateText}>Login</Text> */}
-          {/* </Pressable> */}
         </View>
-      </View>
+      </KeyboardAvoidingView>
       <View style={styles.footCont}>
         <Text style={styles.footer}>
           By Proceeding, You consent to share your information with cureskin and
@@ -85,7 +86,6 @@ const styles = StyleSheet.create({
   },
   logoCont: {
     top: 50,
-    flex: 1,
   },
   logoImage: {
     width: 218,
@@ -165,14 +165,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "white",
   },
+  footCont: {
+    position: "relative",
+    top: -100,
+    // flex: 1,
+  },
   footer: {
     fontSize: 10,
     paddingHorizontal: 40,
-    textAlign: "center",
-  },
-  footCont: {
-    position: "relative",
-    top: 50,
-    flex: 1,
+    // textAlign: "center",
   },
 });

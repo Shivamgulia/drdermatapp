@@ -1,4 +1,12 @@
-import { View, Text, StyleSheet, Pressable, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import React, { useState } from "react";
 import LogoButton from "../components/UI/LogoButton";
 import Otp1 from "../../assets/otp1.png";
@@ -20,7 +28,10 @@ export default function Confirmotp() {
     console.log(newOtp);
   }
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
       <View style={styles.logoCont}>
         <Image source={Logo} style={styles.logoImage} />
       </View>
@@ -55,7 +66,7 @@ export default function Confirmotp() {
           agree to Cureskin's Privacy Policy and Terms of Service
         </Text>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 

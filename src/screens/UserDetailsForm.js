@@ -5,10 +5,12 @@ import {
   Pressable,
   View,
   TextInput,
+  Platform,
   Image,
+  KeyboardAvoidingView,
 } from "react-native";
 import React, { useState } from "react";
-import LogoButton from "../components/UI/LogoButton";
+
 import { useNavigation } from "@react-navigation/native";
 
 import UserForm from "../../assets/userform.png";
@@ -33,7 +35,10 @@ export default function UserDetailsForm() {
   }
 
   return (
-    <View style={styles.container}>
+    <View
+      // behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
       <View style={styles.logoCont}>
         {/* <LogoButton onPress={() => {}} /> */}
         <Image source={Logo} style={styles.logoImage} />
@@ -41,8 +46,8 @@ export default function UserDetailsForm() {
       <View style={styles.imgCont}>
         <Image source={UserForm} style={styles.mainImage} />
       </View>
-      <View
-        // behavior={Platform.OS === "ios" ? "padding" : "height"}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.form}
       >
         <Text style={styles.signText}>Add your information ....</Text>
@@ -67,7 +72,7 @@ export default function UserDetailsForm() {
         <Pressable onPress={confirmOTP} style={styles.generateButton}>
           <Text style={styles.generateText}>Continue</Text>
         </Pressable>
-      </View>
+      </KeyboardAvoidingView>
     </View>
   );
 }

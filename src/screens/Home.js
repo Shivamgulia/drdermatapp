@@ -20,11 +20,14 @@ import topBack from "../../assets/home/topback.jpeg";
 import offerImg from "../../assets/home/offer.png";
 import backbottom from "../../assets/home/backbottom.jpeg";
 import BottomNav from "../components/UI/BottomNav";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
   const { width } = useWindowDimensions();
 
   const [searchValue, setSearchValue] = useState();
+
+  const navigation = useNavigation();
 
   const carosalList = [
     {
@@ -182,11 +185,15 @@ const Home = () => {
               </View>
               <Text style={{ color: "white" }}>Area and City</Text>
             </Pressable>
-            <Pressable>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Cart");
+              }}
+            >
               <View style={styles.topButtons}>
                 <Icon name="cart-outline" size={20} color="white" />
               </View>
-            </Pressable>
+            </TouchableOpacity>
           </View>
           <View style={styles.inputView}>
             <Text
@@ -196,9 +203,9 @@ const Home = () => {
             </Text>
             <TextInput
               placeholder={
-                width < 500 ? "Search Clinics, Tests, Products" : "Search"
+                width > 400 ? "Search Clinics, Tests, Products" : "Search"
               }
-              style={[styles.searchInput]}
+              style={styles.searchInput}
               onChangeText={setSearchValue}
               value={searchValue}
             />
@@ -456,15 +463,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fdf3d4",
     borderRadius: 24,
     marginHorizontal: 30,
+    minwidth: "100",
+
     boxShadow:
       "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
+    paddingLeft: 50,
   },
   posterCont: {
     position: "relative",
     top: -50,
   },
   caresol: {
-    gap: 20,
+    marginRight: 10,
   },
   sectionTitle: {
     fontSize: 18,

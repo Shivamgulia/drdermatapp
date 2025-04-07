@@ -42,7 +42,7 @@ export default function BottomNav() {
       <Pressable
         style={styles.navItem}
         onPress={() => {
-          navigation.navigate("Cart");
+          // navigation.navigate("Cart");
         }}
       >
         <FontAwesome6 name="user-doctor" size={37} color="#515C71" />
