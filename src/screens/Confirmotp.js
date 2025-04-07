@@ -6,6 +6,7 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import LogoButton from "../components/UI/LogoButton";
@@ -28,45 +29,48 @@ export default function Confirmotp() {
     console.log(newOtp);
   }
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
-      <View style={styles.logoCont}>
-        <Image source={Logo} style={styles.logoImage} />
-      </View>
-      <View style={styles.formCont}>
-        <Image source={Otp1} style={styles.mainImage} />
+    <ScrollView>
+      <View
+        // behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.container}
+      >
+        <View style={styles.logoCont}>
+          <Image source={Logo} style={styles.logoImage} />
+        </View>
+        <View style={styles.formCont}>
+          <Image source={Otp1} style={styles.mainImage} />
 
-        <View style={styles.bottomForm}>
-          <Text style={styles.numberText}>Verify mobile number ...</Text>
-          <View
-            // behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.form}
-          >
-            <View style={styles.inputView}>
-              <OTPInput length={6} updateOtp={setOtp} />
+          <View style={styles.bottomForm}>
+            <Text style={styles.numberText}>Verify mobile number ...</Text>
+            <View
+              // behavior={Platform.OS === "ios" ? "padding" : "height"}
+              style={styles.form}
+            >
+              <View style={styles.inputView}>
+                <OTPInput length={6} updateOtp={setOtp} />
+              </View>
+
+              <Text style={styles.timeText}>
+                Time left for verification - {"{28}"} sec
+              </Text>
+              <Pressable onPress={confirmOTP} style={styles.generateButton}>
+                <Text style={styles.generateText}>Confirm OTP</Text>
+              </Pressable>
+              <Pressable onPress={() => {}} style={styles.resendButton}>
+                <Text style={styles.resendText}>Resend OTP</Text>
+              </Pressable>
             </View>
-
-            <Text style={styles.timeText}>
-              Time left for verification - {"{28}"} sec
-            </Text>
-            <Pressable onPress={confirmOTP} style={styles.generateButton}>
-              <Text style={styles.generateText}>Confirm OTP</Text>
-            </Pressable>
-            <Pressable onPress={() => {}} style={styles.resendButton}>
-              <Text style={styles.resendText}>Resend OTP</Text>
-            </Pressable>
           </View>
         </View>
+        <View style={styles.footCont}>
+          <Text style={styles.footer}>
+            By Proceeding, You consent to share your information with cureskin
+            and agree to Cureskin's Privacy Policy and Terms of Service
+          </Text>
+        </View>
       </View>
-      <View style={styles.footCont}>
-        <Text style={styles.footer}>
-          By Proceeding, You consent to share your information with cureskin and
-          agree to Cureskin's Privacy Policy and Terms of Service
-        </Text>
-      </View>
-    </KeyboardAvoidingView>
+      <View style={{ height: 350 }}></View>
+    </ScrollView>
   );
 }
 

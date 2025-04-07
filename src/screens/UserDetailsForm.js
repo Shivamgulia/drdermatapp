@@ -8,6 +8,7 @@ import {
   Platform,
   Image,
   KeyboardAvoidingView,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 
@@ -35,45 +36,47 @@ export default function UserDetailsForm() {
   }
 
   return (
-    <View
-      // behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
+    <ScrollView
+    // behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <View style={styles.logoCont}>
-        {/* <LogoButton onPress={() => {}} /> */}
-        <Image source={Logo} style={styles.logoImage} />
-      </View>
-      <View style={styles.imgCont}>
-        <Image source={UserForm} style={styles.mainImage} />
-      </View>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.form}
-      >
-        <Text style={styles.signText}>Add your information ....</Text>
-        <View style={styles.inputView}>
-          <Text style={styles.label}>Name</Text>
-          <TextInput
-            onChangeText={setName}
-            value={name}
-            placeholder="Full Name"
-            style={styles.input}
-          />
+      <View style={styles.container}>
+        <View style={styles.logoCont}>
+          {/* <LogoButton onPress={() => {}} /> */}
+          <Image source={Logo} style={styles.logoImage} />
         </View>
-        <View style={styles.inputView}>
-          <Text style={styles.label}>Your Email</Text>
-          <TextInput
-            onChangeText={setAddress}
-            value={address}
-            placeholder="Enter your email"
-            style={styles.input}
-          />
+        <View style={styles.imgCont}>
+          <Image source={UserForm} style={styles.mainImage} />
         </View>
-        <Pressable onPress={confirmOTP} style={styles.generateButton}>
-          <Text style={styles.generateText}>Continue</Text>
-        </Pressable>
-      </KeyboardAvoidingView>
-    </View>
+        <View
+          // behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.form}
+        >
+          <Text style={styles.signText}>Add your information ....</Text>
+          <View style={styles.inputView}>
+            <Text style={styles.label}>Name</Text>
+            <TextInput
+              onChangeText={setName}
+              value={name}
+              placeholder="Full Name"
+              style={styles.input}
+            />
+          </View>
+          <View style={styles.inputView}>
+            <Text style={styles.label}>Your Email</Text>
+            <TextInput
+              onChangeText={setAddress}
+              value={address}
+              placeholder="Enter your email"
+              style={styles.input}
+            />
+          </View>
+          <Pressable onPress={confirmOTP} style={styles.generateButton}>
+            <Text style={styles.generateText}>Continue</Text>
+          </Pressable>
+        </View>
+      </View>
+      <View style={{ height: 350 }}></View>
+    </ScrollView>
   );
 }
 

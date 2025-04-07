@@ -8,6 +8,7 @@ import {
   TextInput,
   Platform,
   Image,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import LogoButton from "../components/UI/LogoButton";
@@ -18,6 +19,7 @@ import Logo from "../../assets/drdermatlogo.jpeg";
 
 import { Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 export default function Login() {
   const [number, setNumber] = useState();
@@ -34,9 +36,9 @@ export default function Login() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
+    <ScrollView style={{ minHeight: windowHeight, width: windowWidth }}>
+      <View
+        // behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       >
         <View style={styles.logoCont}>
@@ -66,14 +68,15 @@ export default function Login() {
             </Pressable>
           </View>
         </View>
-      </KeyboardAvoidingView>
+      </View>
       <View style={styles.footCont}>
         <Text style={styles.footer}>
           By Proceeding, You consent to share your information with cureskin and
           agree to Cureskin's Privacy Policy and Terms of Service
         </Text>
       </View>
-    </View>
+      <View style={{ height: 350 }}></View>
+    </ScrollView>
   );
 }
 
@@ -166,8 +169,9 @@ const styles = StyleSheet.create({
     color: "white",
   },
   footCont: {
-    position: "relative",
-    top: -100,
+    // position: "relative",
+    // top: -100,
+    marginTop: 40,
     // flex: 1,
   },
   footer: {
