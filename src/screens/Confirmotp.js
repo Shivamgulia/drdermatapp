@@ -7,8 +7,9 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Keyboard,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LogoButton from "../components/UI/LogoButton";
 import Otp1 from "../../assets/otp1.png";
 import { useNavigation } from "@react-navigation/native";
@@ -20,6 +21,22 @@ export default function Confirmotp() {
 
   const navigation = useNavigation();
 
+  const [showKeyboard, setShowKeyboard] = useState(false);
+
+  useEffect(() => {
+    const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
+      setShowKeyboard(true);
+    });
+    const hideSubscription = Keyboard.addListener("keyboardDidHide", () => {
+      setShowKeyboard(false);
+    });
+
+    return () => {
+      showSubscription.remove();
+      hideSubscription.remove();
+    };
+  }, []);
+
   function confirmOTP() {
     navigation.navigate("Selectcity");
     let newOtp = "";
@@ -28,49 +45,50 @@ export default function Confirmotp() {
     });
     console.log(newOtp);
   }
+
   return (
-    <ScrollView>
-      <View
-        // behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.container}
-      >
+    <View style={styles.container}>
+      {!showKeyboard && (
         <View style={styles.logoCont}>
           <Image source={Logo} style={styles.logoImage} />
         </View>
-        <View style={styles.formCont}>
+      )}
+      {!showKeyboard && (
+        <View style={styles.imgCont}>
           <Image source={Otp1} style={styles.mainImage} />
-
-          <View style={styles.bottomForm}>
-            <Text style={styles.numberText}>Verify mobile number ...</Text>
-            <View
-              // behavior={Platform.OS === "ios" ? "padding" : "height"}
-              style={styles.form}
-            >
-              <View style={styles.inputView}>
-                <OTPInput length={6} updateOtp={setOtp} />
-              </View>
-
-              <Text style={styles.timeText}>
-                Time left for verification - {"{28}"} sec
-              </Text>
-              <Pressable onPress={confirmOTP} style={styles.generateButton}>
-                <Text style={styles.generateText}>Confirm OTP</Text>
-              </Pressable>
-              <Pressable onPress={() => {}} style={styles.resendButton}>
-                <Text style={styles.resendText}>Resend OTP</Text>
-              </Pressable>
+        </View>
+      )}
+      <KeyboardAvoidingView
+        style={styles.formCont}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+      >
+        <View style={styles.bottomForm}>
+          <Text style={styles.numberText}>Verify mobile number ...</Text>
+          <View style={styles.form}>
+            <View style={styles.inputView}>
+              <OTPInput length={6} updateOtp={setOtp} />
             </View>
+            <Text style={styles.timeText}>
+              Time left for verification - {"{28}"} sec
+            </Text>
+            <Pressable onPress={confirmOTP} style={styles.generateButton}>
+              <Text style={styles.generateText}>Confirm OTP</Text>
+            </Pressable>
+            <Pressable onPress={() => {}} style={styles.resendButton}>
+              <Text style={styles.resendText}>Resend OTP</Text>
+            </Pressable>
           </View>
         </View>
+      </KeyboardAvoidingView>
+      {!showKeyboard && (
         <View style={styles.footCont}>
           <Text style={styles.footer}>
             By Proceeding, You consent to share your information with cureskin
             and agree to Cureskin's Privacy Policy and Terms of Service
           </Text>
         </View>
-      </View>
-      <View style={{ height: 350 }}></View>
-    </ScrollView>
+      )}
+    </View>
   );
 }
 
@@ -82,9 +100,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logoCont: {
-    top: 100,
-
-    zIndex: 2,
+    top: 50,
   },
   logoImage: {
     width: 218,
@@ -93,9 +109,12 @@ const styles = StyleSheet.create({
       "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 9px 18px -18px",
   },
   formCont: {
-    marginTop: 150,
     alignItems: "center",
     gap: 40,
+  },
+  imgCont: {
+    marginTop: 100,
+    alignItems: "center",
   },
   mainImage: {
     width: 250,
@@ -163,13 +182,16 @@ const styles = StyleSheet.create({
   resendText: {
     fontSize: 10,
   },
+  footCont: {
+    position: "relative",
+
+    marginTop: 10,
+    // marginBottom: 40,
+    // flex: 1,
+  },
   footer: {
     fontSize: 10,
     paddingHorizontal: 40,
     textAlign: "center",
-  },
-  footCont: {
-    position: "relative",
-    top: 10,
   },
 });

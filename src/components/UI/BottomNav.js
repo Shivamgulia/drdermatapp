@@ -22,7 +22,7 @@ export default function BottomNav() {
       <Pressable
         style={styles.navItem}
         onPress={() => {
-          navigation.navigate("Concern");
+          // navigation.navigate("Concern");
         }}
       >
         <FoundationIcon name="clipboard" size={37} color="#515C71" />
@@ -31,7 +31,7 @@ export default function BottomNav() {
       <Pressable
         style={styles.centerNav}
         onPress={() => {
-          navigation.navigate("AddClinic");
+          // navigation.navigate("AddClinic");
         }}
       >
         <View style={styles.centerNavItem}>

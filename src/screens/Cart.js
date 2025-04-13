@@ -1,6 +1,6 @@
 import {
   FlatList,
-  Pressable,
+  TouchableOpacity,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -158,7 +158,7 @@ export default function Cart() {
               }}
             >
               <Text>Missed Something? </Text>
-              <Pressable
+              <TouchableOpacity
                 style={{
                   backgroundColor: "black",
                   paddingVertical: 6,
@@ -167,7 +167,7 @@ export default function Cart() {
                 }}
               >
                 <Text style={{ color: "white" }}>+ Add More Items</Text>
-              </Pressable>
+              </TouchableOpacity>
             </View>
           </View>
 
@@ -193,7 +193,7 @@ export default function Cart() {
               <Icon name="tag" size={15} color="white" />
               {"  "}Have Coupon?
             </Text>
-            <Pressable
+            <TouchableOpacity
               onPress={() => {}}
               style={{
                 borderWidth: 1,
@@ -204,7 +204,7 @@ export default function Cart() {
               }}
             >
               <Text style={{ color: "white", fontSize: 10 }}>Apply Now</Text>
-            </Pressable>
+            </TouchableOpacity>
           </View>
           <View
             style={{
@@ -288,7 +288,7 @@ export default function Cart() {
                   Free Domestic Shipping
                 </Text>
               </View>
-              <Pressable
+              <TouchableOpacity
                 style={{
                   flexDirection: "row",
                   gap: 10,
@@ -314,10 +314,10 @@ export default function Cart() {
                 >
                   {">"}
                 </Text>
-              </Pressable>
+              </TouchableOpacity>
             </View>
           </View>
-          <View style={{ paddingTop: 20, marginBottom: 200 }}>
+          <View style={{ paddingTop: 20, marginBottom: 400 }}>
             <Text style={{ paddingLeft: 20, fontWeight: "bold", fontSize: 15 }}>
               You might also like
             </Text>
@@ -351,7 +351,7 @@ export default function Cart() {
           <Icon name="home" size={15} color="blue" />
           <Text>Delivering to your Address</Text>
         </View>
-        <Pressable
+        <TouchableOpacity
           style={{
             flexDirection: "row",
             gap: 10,
@@ -367,7 +367,7 @@ export default function Cart() {
           }}
         >
           <Text style={{ color: "white" }}>Click To Pay</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </>
   );

@@ -23,7 +23,7 @@ export default function Thankyou() {
             borderRadius: 30,
           }}
           onPress={() => {
-            navigation.navigate("Concern");
+            navigation.navigate("Dashboard");
           }}
         >
           <Text style={{ color: "white", fontSize: 20, fontWeight: "bold" }}>

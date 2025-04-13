@@ -9,8 +9,9 @@ import {
   Image,
   KeyboardAvoidingView,
   ScrollView,
+  Keyboard,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -26,6 +27,22 @@ export default function UserDetailsForm() {
 
   const navigation = useNavigation();
 
+  const [showKeyboard, setShowKeyboard] = useState(false);
+
+  useEffect(() => {
+    const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
+      setShowKeyboard(true);
+    });
+    const hideSubscription = Keyboard.addListener("keyboardDidHide", () => {
+      setShowKeyboard(false);
+    });
+
+    return () => {
+      showSubscription.remove();
+      hideSubscription.remove();
+    };
+  }, []);
+
   function confirmOTP() {
     console.log("confirm OTP");
     navigation.navigate("Intro1");
@@ -36,47 +53,48 @@ export default function UserDetailsForm() {
   }
 
   return (
-    <ScrollView
-    // behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
-      <View style={styles.container}>
+    // <View behavior={Platform.OS === "ios" ? "padding" : "height"}>
+    <View style={styles.container}>
+      {!showKeyboard && (
         <View style={styles.logoCont}>
-          {/* <LogoButton onPress={() => {}} /> */}
           <Image source={Logo} style={styles.logoImage} />
         </View>
+      )}
+      {!showKeyboard && (
         <View style={styles.imgCont}>
           <Image source={UserForm} style={styles.mainImage} />
         </View>
-        <View
-          // behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={styles.form}
-        >
-          <Text style={styles.signText}>Add your information ....</Text>
-          <View style={styles.inputView}>
-            <Text style={styles.label}>Name</Text>
-            <TextInput
-              onChangeText={setName}
-              value={name}
-              placeholder="Full Name"
-              style={styles.input}
-            />
-          </View>
-          <View style={styles.inputView}>
-            <Text style={styles.label}>Your Email</Text>
-            <TextInput
-              onChangeText={setAddress}
-              value={address}
-              placeholder="Enter your email"
-              style={styles.input}
-            />
-          </View>
-          <Pressable onPress={confirmOTP} style={styles.generateButton}>
-            <Text style={styles.generateText}>Continue</Text>
-          </Pressable>
+      )}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.form}
+      >
+        <Text style={styles.signText}>Add your information ....</Text>
+        <View style={styles.inputView}>
+          <Text style={styles.label}>Name</Text>
+          <TextInput
+            onChangeText={setName}
+            value={name}
+            placeholder="Full Name"
+            style={styles.input}
+          />
         </View>
-      </View>
-      <View style={{ height: 350 }}></View>
-    </ScrollView>
+        <View style={styles.inputView}>
+          <Text style={styles.label}>Your Email</Text>
+          <TextInput
+            onChangeText={setAddress}
+            value={address}
+            placeholder="Enter your email"
+            style={styles.input}
+          />
+        </View>
+        <Pressable onPress={confirmOTP} style={styles.generateButton}>
+          <Text style={styles.generateText}>Continue</Text>
+        </Pressable>
+      </KeyboardAvoidingView>
+    </View>
+    //  <View style={{ height: 150 }}></View>
+    // </View>
   );
 }
 
@@ -88,7 +106,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logoCont: {
-    top: 40,
+    // top: 40,
   },
   logoImage: {
     width: 218,
@@ -97,7 +115,7 @@ const styles = StyleSheet.create({
       "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 9px 18px -18px",
   },
   imgCont: {
-    marginTop: 150,
+    marginTop: 40,
     alignItems: "center",
     gap: 40,
   },
@@ -167,7 +185,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
   },
   footCont: {
-    position: "relative",
-    top: 10,
+    // position: "relative",
+    // top: 10,
   },
 });

@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   bodyText: {
-    fontSize: 15,
+    fontSize: 12,
     textAlign: "center",
     paddingHorizontal: 20,
     color: "#808080",

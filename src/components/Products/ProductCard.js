@@ -1,4 +1,11 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 
 export default function ProductCard(props) {
@@ -53,22 +60,22 @@ export default function ProductCard(props) {
             borderRadius: 4,
           }}
         >
-          <Pressable
+          <TouchableOpacity
             style={{}}
             onPress={() => {
               decreaseProductQuantity(props.data.id);
             }}
           >
             <Text style={{ fontWeight: "bold" }}>-</Text>
-          </Pressable>
+          </TouchableOpacity>
           <Text>{props.data.quatity}</Text>
-          <Pressable
+          <TouchableOpacity
             onPress={() => {
               increaseProductQuantity(props.data.id);
             }}
           >
             <Text>+</Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

@@ -47,7 +47,6 @@ export default function AdditionalConcern() {
     false,
     false,
   ]);
-  console.log(selectStates);
 
   const navigation = useNavigation();
   return (

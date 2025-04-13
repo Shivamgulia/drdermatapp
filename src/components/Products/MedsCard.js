@@ -1,4 +1,11 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 
 export default function MedsCard({ data }) {
@@ -44,9 +51,11 @@ export default function MedsCard({ data }) {
             boxShadow: "#84b2cc 0px 10px 10px, #84b2cc 0px 6px 6px",
           }}
         >
-          <Text style={{ textAlign: "center", color: "white" }}>
-            Add To Cart
-          </Text>
+          <TouchableOpacity style={{}}>
+            <Text style={{ textAlign: "center", color: "white" }}>
+              Add To Cart
+            </Text>
+          </TouchableOpacity>
         </Pressable>
       </View>
     </View>

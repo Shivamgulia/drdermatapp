@@ -12,10 +12,23 @@ export default function ChooseConcern() {
   return (
     <>
       <View style={{ flex: 1, backgroundColor: "#155e95" }}>
-        <View style={{ flex: 1 }}></View>
         <View
           style={{
             flex: 1,
+            alignItems: "flex-start",
+            justifyContent: "flex-end",
+            marginBottom: 20,
+            paddingLeft: 30,
+            marginTop: 30,
+          }}
+        >
+          <Text style={{ fontSize: 30, fontWeight: "bold", color: "white" }}>
+            Choose Your Concerns?
+          </Text>
+        </View>
+        <View
+          style={{
+            flex: 2,
             backgroundColor: "white",
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,

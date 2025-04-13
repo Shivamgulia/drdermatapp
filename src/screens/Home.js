@@ -21,6 +21,9 @@ import offerImg from "../../assets/home/offer.png";
 import backbottom from "../../assets/home/backbottom.jpeg";
 import BottomNav from "../components/UI/BottomNav";
 import { useNavigation } from "@react-navigation/native";
+import { Dimensions } from "react-native";
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const Home = () => {
   const { width } = useWindowDimensions();
@@ -34,16 +37,22 @@ const Home = () => {
       id: "1",
       name: "one",
       icon: require("../../assets/home/head1.png"),
+      redirect: false,
+      redirectTo: "Concern",
     },
     {
       id: "2",
       name: "two",
       icon: require("../../assets/home/head2.png"),
+      redirect: false,
+      redirectTo: "Concern",
     },
     {
       id: "3",
       name: "three",
       icon: require("../../assets/home/head3.png"),
+      redirect: true,
+      redirectTo: "Concern",
     },
   ];
 
@@ -197,7 +206,7 @@ const Home = () => {
           </View>
           <View style={styles.inputView}>
             <Text
-              style={{ position: "relative", top: 32, left: 40, zIndex: 2 }}
+            // style={{ position: "relative", top: 32, left: 40, zIndex: 2 }}
             >
               <Icon name="search" size={20} color="black" />
             </Text>
@@ -205,7 +214,7 @@ const Home = () => {
               placeholder={
                 width > 400 ? "Search Clinics, Tests, Products" : "Search"
               }
-              style={styles.searchInput}
+              style={[styles.searchInput]}
               onChangeText={setSearchValue}
               value={searchValue}
             />
@@ -454,24 +463,27 @@ const styles = StyleSheet.create({
     backgroundColor: "#155e95",
     padding: 10,
   },
-  inputView: {},
-  searchInput: {
-    backgroundColor: "#ffffff",
-    borderRadius: 8,
-    padding: 12,
-    paddingHorizontal: 40,
+  inputView: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
     backgroundColor: "#fdf3d4",
     borderRadius: 24,
-    marginHorizontal: 30,
-    minwidth: "100",
-
+    marginHorizontal: 20,
+    gap: 10,
+    minwidth: 100,
     boxShadow:
       "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
-    paddingLeft: 50,
+  },
+  searchInput: {
+    width: windowWidth - 140,
   },
   posterCont: {
     position: "relative",
     top: -50,
+    // paddingHorizontal: 30,
   },
   caresol: {
     marginRight: 10,
