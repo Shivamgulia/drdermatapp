@@ -255,10 +255,15 @@ const Home = () => {
             nestedScrollEnabled={true}
             numColumns={3}
             renderItem={({ item }) => (
-              <View style={styles.clinicItem}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("ClinicList");
+                }}
+                style={styles.clinicItem}
+              >
                 <Image source={item.icon} style={styles.categoryIcon} />
                 <Text style={styles.clinicText}>{item.name}</Text>
-              </View>
+              </TouchableOpacity>
             )}
           />
         </View>
@@ -305,10 +310,15 @@ const Home = () => {
             keyExtractor={(item) => item.id}
             nestedScrollEnabled={true}
             renderItem={({ item }) => (
-              <View style={styles.catProductItem}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("ProductList");
+                }}
+                style={styles.catProductItem}
+              >
                 <Image source={item.icon} style={styles.catProductIcon} />
                 <Text style={styles.catProductText}>{item.name}</Text>
-              </View>
+              </TouchableOpacity>
             )}
           />
         </View>

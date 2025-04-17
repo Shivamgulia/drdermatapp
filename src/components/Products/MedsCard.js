@@ -16,12 +16,13 @@ export default function MedsCard({ data }) {
         marginHorizontal: 16,
         gap: 5,
         paddingBottom: 50,
+        alignItems: "center",
       }}
     >
       <Image
         source={data.image}
         style={{
-          width: 100,
+          width: "90%",
           height: 100,
           borderWidth: 1,
           borderColor: "#f3f3f3",
@@ -51,7 +52,7 @@ export default function MedsCard({ data }) {
             boxShadow: "#84b2cc 0px 10px 10px, #84b2cc 0px 6px 6px",
           }}
         >
-          <TouchableOpacity style={{}}>
+          <TouchableOpacity style={{ paddingHorizontal: 30 }}>
             <Text style={{ textAlign: "center", color: "white" }}>
               Add To Cart
             </Text>
