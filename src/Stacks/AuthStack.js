@@ -25,6 +25,7 @@ import AddClinic from "../screens/AddClinic";
 import ClinicItem from "../screens/ClinicItem";
 import ProductList from "../screens/ProductList";
 import ClinicList from "../screens/ClinicList";
+import Product from "../screens/Product";
 
 const Stack = createNativeStackNavigator();
 
@@ -135,6 +136,11 @@ const AuthStack = () => {
       <Stack.Screen
         name="ClinicList"
         component={ClinicList}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Product"
+        component={Product}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

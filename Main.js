@@ -6,6 +6,7 @@ import { AuthContext } from "./src/store/authContext";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import AuthStack from "./src/Stacks/AuthStack";
+import DevStack from "./src/Stacks/DevStack";
 // import UserStack from "./src/Stacks/UserStack";
 // import Navbar from "./src/components/Navbar/Navbar";
 // import Loading from "./src/components/UI/Loading";
@@ -55,7 +56,8 @@ export default function Main() {
     <>
       <NavigationContainer theme={MyTheme}>
         {/* {!loggedIn && <AuthStack />} */}
-        <AuthStack />
+        <DevStack />
+        {/* <AuthStack /> */}
         {/* {loggedIn && <UserStack />} */}
         {/* {loggedIn && (
           <View style={styles.navbar}>

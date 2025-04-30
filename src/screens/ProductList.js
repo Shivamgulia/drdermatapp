@@ -188,9 +188,14 @@ export default function ProductList() {
               numColumns={2}
               renderItem={(item) => {
                 return (
-                  <View style={{ width: "50%" }}>
+                  <TouchableOpacity
+                    style={{ width: "50%" }}
+                    onPress={() => {
+                      navigation.navigate("Product");
+                    }}
+                  >
                     <MedsCard data={item.item} />
-                  </View>
+                  </TouchableOpacity>
                 );
               }}
             />
