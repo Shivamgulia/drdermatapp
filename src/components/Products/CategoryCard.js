@@ -27,8 +27,8 @@ export default function CategoryCard({ item, active }) {
       <Image
         source={data.image}
         style={{
-          width: "100%",
-          height: 70,
+          width: "70%",
+          height: 30,
           borderWidth: 1,
           borderColor: "#f3f3f3",
           borderRadius: 8,

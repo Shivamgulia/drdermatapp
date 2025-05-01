@@ -15,6 +15,7 @@ import BottomNav from "../components/UI/BottomNav";
 import { Dimensions } from "react-native";
 import ProductReviewSection from "../components/Products/ProductReviewSection";
 import MedsCard from "../components/Products/MedsCard";
+import ProductDetailsSections from "../components/Products/ProductDetailsSections";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
@@ -309,7 +310,7 @@ export default function Product() {
               />
             </View>
           )}
-          {showSection == 1 && <Text>Details</Text>}
+          {showSection == 1 && <ProductDetailsSections />}
           {showSection == 2 && <ProductReviewSection />}
         </View>
 
@@ -357,6 +358,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fdf3d4",
     borderRadius: 24,
     marginHorizontal: 50,
+    paddingVertical: 8,
     gap: 10,
     minwidth: 100,
     boxShadow:

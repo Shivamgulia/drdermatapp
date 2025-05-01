@@ -51,6 +51,7 @@ export default function ProductReviewSection() {
             borderWidth: 1,
             paddingHorizontal: 10,
             paddingVertical: 4,
+            borderRadius: 10,
           }}
         >
           <Text style={{ fontSize: 16, color: "#155e94" }}>Write a Review</Text>

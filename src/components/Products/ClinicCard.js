@@ -23,16 +23,17 @@ export default function ClinicCard({ item }) {
           flexDirection: "row",
           paddingHorizontal: 10,
           gap: 20,
+          alignItems: "center",
         }}
       >
         <View>
           <Image
             source={data.image}
-            style={{ width: windowWidth / 3, height: 150 }}
+            style={{ width: windowWidth / 4, height: 100 }}
           />
         </View>
         <View>
-          <Text style={{ fontSize: 30, fontWeight: "bold" }}>{data.name}</Text>
+          <Text style={{ fontSize: 25, fontWeight: "bold" }}>{data.name}</Text>
           <View
             style={{ flexDirection: "row", gap: 5, alignItems: "flex-end" }}
           >
@@ -48,7 +49,7 @@ export default function ClinicCard({ item }) {
                 alignItems: "center",
               }}
             >
-              <Text>{data.rating}</Text>
+              <Text style={{ fontSize: 13 }}>{data.rating}</Text>
               <Icon name="star" size={13} />
             </View>
             <Text style={{ fontSize: 10, color: "#695e21" }}>
@@ -56,8 +57,16 @@ export default function ClinicCard({ item }) {
             </Text>
           </View>
           <View>
-            <Text style={{ color: "#695e21", paddingLeft: 10 }}>Address</Text>
-            <Text style={{ width: windowWidth / 2, color: "#695e21" }}>
+            <Text style={{ color: "#695e21", paddingLeft: 0, fontSize: 12 }}>
+              Address
+            </Text>
+            <Text
+              style={{
+                width: (windowWidth * 2) / 3,
+                color: "#695e21",
+                fontSize: 12,
+              }}
+            >
               {data.description}
             </Text>
           </View>
@@ -72,21 +81,21 @@ export default function ClinicCard({ item }) {
       >
         <View style={styles.buttons}>
           <Text style={styles.text}>
-            <Icon name="phone" size={14} />
+            <Icon name="phone" size={12} />
             {"  "}
             Call
           </Text>
         </View>
         <View style={styles.greenButton}>
           <Text style={styles.greenButtonText}>
-            <Icon name="whatsapp" size={14} />
+            <Icon name="whatsapp" size={12} />
             {"  "}
             Whatsapp
           </Text>
         </View>
         <View style={styles.buttons}>
           <Text style={styles.text}>
-            <Icon name="map" size={14} color={"white"} />
+            <Icon name="map" size={12} color={"white"} />
             {"  "}
             Direction
           </Text>
@@ -102,11 +111,12 @@ export default function ClinicCard({ item }) {
 const styles = StyleSheet.create({
   buttons: {
     backgroundColor: "#155e95",
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
     borderRadius: 20,
+    justifyContent: "center",
   },
-  text: { color: "white" },
+  text: { color: "white", fontSize: 12 },
   greenButton: {
     paddingHorizontal: 10,
     paddingVertical: 4,

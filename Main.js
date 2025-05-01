@@ -56,8 +56,8 @@ export default function Main() {
     <>
       <NavigationContainer theme={MyTheme}>
         {/* {!loggedIn && <AuthStack />} */}
-        <DevStack />
-        {/* <AuthStack /> */}
+        {/* <DevStack /> */}
+        <AuthStack />
         {/* {loggedIn && <UserStack />} */}
         {/* {loggedIn && (
           <View style={styles.navbar}>
