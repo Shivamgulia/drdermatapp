@@ -11,22 +11,34 @@ import AddProduct from "../screens/AddProduct";
 import AddCategory from "../screens/AddCategory";
 import ClinicLeads from "../screens/ClinicLeads";
 import DoctorAppointmentList from "../screens/DoctorAppointmentList";
+import DoctorLeads from "../screens/DoctorLeads";
+import UserProfile from "../screens/UserProfile";
 
 const Stack = createNativeStackNavigator();
 
-const DevStack = () => {
+const DoctorStack = () => {
   const navigation = useNavigation();
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="Appointments"
         component={DoctorAppointmentList}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Leads"
+        component={DoctorLeads}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={UserProfile}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
 };
 
-export default DevStack;
+export default DoctorStack;
 
 const styles = StyleSheet.create({});

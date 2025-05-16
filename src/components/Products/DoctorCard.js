@@ -10,7 +10,7 @@ const windowWidth = Dimensions.get("window").width;
 
 const windowHeight = Dimensions.get("window").height;
 
-export default function ClinicCard({ item, hideButtons }) {
+export default function DoctorCard({ item, hideButtons }) {
   const data = item;
 
   const navigation = useNavigation();
@@ -30,7 +30,11 @@ export default function ClinicCard({ item, hideButtons }) {
         <View>
           <Image
             source={data.image}
-            style={{ width: windowWidth / 4, height: 100 }}
+            style={{
+              width: windowWidth / 4,
+              height: windowWidth / 4,
+              borderRadius: windowWidth / 8,
+            }}
           />
         </View>
         <View>
@@ -53,13 +57,13 @@ export default function ClinicCard({ item, hideButtons }) {
               <Text style={{ fontSize: 13 }}>{data.rating}</Text>
               <Icon name="star" size={13} />
             </View>
-            <Text style={{ fontSize: 10, color: "#695e21" }}>
+            {/* <Text style={{ fontSize: 10, color: "#695e21" }}>
               {"( 100 Reviews )"}
-            </Text>
+            </Text> */}
           </View>
           <View>
             <Text style={{ color: "#695e21", paddingLeft: 0, fontSize: 12 }}>
-              Address
+              About Me
             </Text>
             <Text
               style={{

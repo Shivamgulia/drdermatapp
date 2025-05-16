@@ -5,7 +5,7 @@ import FoundationIcon from "react-native-vector-icons/Foundation";
 import FontAwesome6 from "react-native-vector-icons/FontAwesome6";
 import { useNavigation } from "@react-navigation/native";
 
-export default function BottomNav() {
+export default function BottomNav({ doctor, clinic }) {
   const navigation = useNavigation();
 
   return (
@@ -13,7 +13,13 @@ export default function BottomNav() {
       <Pressable
         style={styles.navItem}
         onPress={() => {
-          navigation.navigate("Dashboard");
+          if (doctor) {
+            navigation.navigate("Leads");
+          } else if (clinic) {
+            navigation.navigate("Leads");
+          } else {
+            navigation.navigate("Dashboard");
+          }
         }}
       >
         <FoundationIcon name="home" size={37} color="#515C71" />
@@ -22,32 +28,42 @@ export default function BottomNav() {
       <Pressable
         style={styles.navItem}
         onPress={() => {
-          // navigation.navigate("Concern");
+          if (doctor) {
+            navigation.navigate("Appointments");
+          } else if (clinic) {
+            navigation.navigate("Appointments");
+          } else {
+            // navigation.navigate("Concern");
+          }
         }}
       >
         <FoundationIcon name="clipboard" size={37} color="#515C71" />
         <Text style={styles.navText}>Book Apointment</Text>
       </Pressable>
-      <Pressable
-        style={styles.centerNav}
-        onPress={() => {
-          // navigation.navigate("AddClinic");
-        }}
-      >
-        <View style={styles.centerNavItem}>
-          <Icon name="folder-open" size={46} color="#515C71" />
-          <Text style={styles.centerNavText}>Your result</Text>
-        </View>
-      </Pressable>
-      <Pressable
-        style={styles.navItem}
-        onPress={() => {
-          // navigation.navigate("Cart");
-        }}
-      >
-        <FontAwesome6 name="user-doctor" size={37} color="#515C71" />
-        <Text style={styles.navText}>Treatment</Text>
-      </Pressable>
+      {!doctor && !clinic && (
+        <Pressable
+          style={styles.centerNav}
+          onPress={() => {
+            // navigation.navigate("AddClinic");
+          }}
+        >
+          <View style={styles.centerNavItem}>
+            <Icon name="folder-open" size={46} color="#515C71" />
+            <Text style={styles.centerNavText}>Your result</Text>
+          </View>
+        </Pressable>
+      )}
+      {!doctor && !clinic && (
+        <Pressable
+          style={styles.navItem}
+          onPress={() => {
+            // navigation.navigate("Cart");
+          }}
+        >
+          <FontAwesome6 name="user-doctor" size={37} color="#515C71" />
+          <Text style={styles.navText}>Treatment</Text>
+        </Pressable>
+      )}
       <Pressable
         style={styles.navItem}
         onPress={() => {

@@ -496,7 +496,7 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 30,
   },
   caresol: {
-    marginRight: 10,
+    marginRight: 0,
   },
   sectionTitle: {
     fontSize: 18,

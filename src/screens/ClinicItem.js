@@ -164,9 +164,9 @@ export default function ClinicItem() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </Text>
-              <TouchableOpacity style={styles.editbutton}>
+              {/* <TouchableOpacity style={styles.editbutton}>
                 <Text>Edit</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
             <View style={styles.service}>
               <View style={styles.clinicImageView}>
@@ -180,9 +180,9 @@ export default function ClinicItem() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </Text>
-              <TouchableOpacity style={styles.editbutton}>
+              {/* <TouchableOpacity style={styles.editbutton}>
                 <Text>Edit</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
             <View style={styles.service}>
               <View style={styles.clinicImageView}>
@@ -196,9 +196,9 @@ export default function ClinicItem() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </Text>
-              <TouchableOpacity style={styles.editbutton}>
+              {/* <TouchableOpacity style={styles.editbutton}>
                 <Text>Edit</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </View>

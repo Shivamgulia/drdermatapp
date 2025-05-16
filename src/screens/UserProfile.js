@@ -7,12 +7,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 
 import BottomNav from "../components/UI/BottomNav";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 import { Dimensions } from "react-native";
+import { AuthContext } from "../store/authContext";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
@@ -77,6 +78,7 @@ const OPTIONS2 = [
 ];
 
 export default function UserProfile() {
+  const authCtx = useContext(AuthContext);
   return (
     <>
       <View style={{ backgroundColor: "#155e95", flex: 1 }}>
@@ -250,6 +252,9 @@ export default function UserProfile() {
                   alignItems: "center",
                   borderRadius: 20,
                 }}
+                onPress={() => {
+                  authCtx.logout();
+                }}
               >
                 <Text style={{ color: "white", fontSize: 20, fontWeight: 700 }}>
                   Logout
@@ -285,7 +290,10 @@ export default function UserProfile() {
           height: 66,
         }}
       >
-        <BottomNav />
+        <BottomNav
+          doctor={authCtx.role == "doctor"}
+          clinic={authCtx.role == "clinic"}
+        />
       </View>
     </>
   );

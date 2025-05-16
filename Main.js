@@ -6,8 +6,9 @@ import { AuthContext } from "./src/store/authContext";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import AuthStack from "./src/Stacks/AuthStack";
-import DevStack from "./src/Stacks/DevStack";
-// import UserStack from "./src/Stacks/UserStack";
+import UserStack from "./src/Stacks/UserStack";
+import DoctorStack from "./src/Stacks/DoctorStack";
+import ClinicStack from "./src/Stacks/ClinicStack";
 // import Navbar from "./src/components/Navbar/Navbar";
 // import Loading from "./src/components/UI/Loading";
 
@@ -55,10 +56,12 @@ export default function Main() {
   return (
     <>
       <NavigationContainer theme={MyTheme}>
-        {/* {!loggedIn && <AuthStack />} */}
+        {!loggedIn && <AuthStack />}
         {/* <DevStack /> */}
-        <AuthStack />
-        {/* {loggedIn && <UserStack />} */}
+        {/* <AuthStack /> */}
+        {loggedIn && authCtx.role == "user" && <UserStack />}
+        {loggedIn && authCtx.role == "clinic" && <ClinicStack />}
+        {loggedIn && authCtx.role == "doctor" && <DoctorStack />}
         {/* {loggedIn && (
           <View style={styles.navbar}>
             <Navbar />

@@ -1,16 +1,21 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 
-export default function CategoryCard({ item, active }) {
-  const data = item.item;
+export default function CategoryCard({ item, active, onChangeCategory }) {
+  const data = item;
   console.log(data, "111");
 
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => {
+        onChangeCategory(data.id);
+      }}
       style={[
         {
           paddingVertical: 8,
           alignItems: "center",
+          justifyContent: "space-between",
+          width: "25%",
         },
         active
           ? {
@@ -44,7 +49,7 @@ export default function CategoryCard({ item, active }) {
       >
         {data.name}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 

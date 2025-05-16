@@ -104,7 +104,12 @@ const DUMMYCLINICS = [
 
 export default function ClinicList() {
   const [searchValue, setSearchValue] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(1);
   const navigation = useNavigation();
+
+  function onChangeCategory(category) {
+    setSelectedCategory(category);
+  }
   return (
     <View>
       <ScrollView>
@@ -164,19 +169,23 @@ export default function ClinicList() {
           </View>
 
           {/* categories */}
-          <View style={{ width: "96%", paddingLeft: "3%", paddingRight: "1%" }}>
-            <FlatList
-              data={CATEGORIES}
-              keyExtractor={(item) => item.id}
-              horizontal
-              renderItem={(item) => {
-                return (
-                  //   <View style={{ width: "20%" }}>
-                  <CategoryCard item={item} active={item.item.id == "1"} />
-                  //   </View>
-                );
-              }}
-            />
+          <View
+            style={{
+              width: "100%",
+              paddingLeft: "3%",
+              paddingRight: "1%",
+              flexDirection: "row",
+            }}
+          >
+            {CATEGORIES.map((item) => {
+              return (
+                <CategoryCard
+                  item={item}
+                  active={item.id == selectedCategory}
+                  onChangeCategory={onChangeCategory}
+                />
+              );
+            })}
           </View>
           {/* meds */}
           <View
@@ -188,7 +197,7 @@ export default function ClinicList() {
               renderItem={(item) => {
                 return (
                   <View style={{ width: "100%", marginBottom: 5 }}>
-                    <ClinicCard item={item} />
+                    <ClinicCard item={item.item} />
                   </View>
                 );
               }}

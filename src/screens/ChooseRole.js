@@ -3,6 +3,7 @@ import React from "react";
 
 import BottomNav from "../components/UI/BottomNav";
 import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
 
 export default function ChooseRole() {
   const navigation = useNavigation();
@@ -70,9 +71,9 @@ export default function ChooseRole() {
                 Doctor
               </Text>
 
-              <Pressable
+              <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate("Login");
+                  navigation.navigate("Login", { role: "doctor" });
                 }}
                 style={{
                   backgroundColor: "#155e95",
@@ -82,7 +83,7 @@ export default function ChooseRole() {
                 }}
               >
                 <Text style={{ color: "white", fontSize: 12 }}>Click Here</Text>
-              </Pressable>
+              </TouchableOpacity>
             </View>
             <View
               style={{
@@ -116,9 +117,9 @@ export default function ChooseRole() {
                 Clinic
               </Text>
 
-              <Pressable
+              <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate("Login");
+                  navigation.navigate("Login", { role: "clinic" });
                 }}
                 style={{
                   backgroundColor: "#155e95",
@@ -128,7 +129,7 @@ export default function ChooseRole() {
                 }}
               >
                 <Text style={{ color: "white", fontSize: 12 }}>Click Here</Text>
-              </Pressable>
+              </TouchableOpacity>
             </View>
           </View>
           <View
@@ -138,9 +139,9 @@ export default function ChooseRole() {
               paddingTop: 20,
             }}
           >
-            <Pressable onPress={() => {}}>
-              <Text style={{ color: "#b0b1b1" }}>I Don't Have a Concern</Text>
-            </Pressable>
+            <TouchableOpacity onPress={() => {}}>
+              <Text style={{ color: "#b0b1b1" }}>Sign in as a user</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

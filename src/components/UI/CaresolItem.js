@@ -18,7 +18,7 @@ export default function CaresolItem(item) {
   const navigation = useNavigation();
 
   return (
-    <View style={{ width: 201, marginRight: 50 }}>
+    <View style={{ width: 201, marginRight: 30 }}>
       {/* <View style={{ width: width / 2 + 20 }}> */}
       <TouchableOpacity
         style={styles.cont}
@@ -35,7 +35,7 @@ export default function CaresolItem(item) {
 const styles = StyleSheet.create({
   cont: {
     height: 130,
-    margin: 20,
+    margin: 10,
   },
   image: {
     width: 201,

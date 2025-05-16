@@ -19,10 +19,15 @@ import Signup1 from "../../assets/signup1.png";
 import Logo from "../../assets/drdermatlogo.jpeg";
 
 import { Dimensions } from "react-native";
+import { TouchableOpacity } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-export default function Login() {
+export default function Login({ route }) {
+  const params = route.params;
+
+  console.log(params);
+
   const [number, setNumber] = useState();
 
   const navigation = useNavigation();
@@ -45,11 +50,13 @@ export default function Login() {
 
   function confirmOTP() {
     console.log("confirm OTP");
-    navigation.navigate("Confirmotp");
+    navigation.navigate("Confirmotp", {
+      role: params?.role ? params?.role : "user",
+    });
   }
 
-  function navigateLogin() {
-    navigation.navigate("Login");
+  function navigateRole() {
+    navigation.navigate("ChooseRole");
   }
 
   return (
@@ -82,12 +89,15 @@ export default function Login() {
         <Pressable onPress={confirmOTP} style={styles.generateButton}>
           <Text style={styles.generateText}>Continue</Text>
         </Pressable>
+        <TouchableOpacity onPress={navigateRole} style={{}}>
+          <Text style={{ color: "grey" }}>Choose Different Role</Text>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
       {!showKeyboard && (
         <View style={styles.footCont}>
           <Text style={styles.footer}>
-            By Proceeding, You consent to share your information with cureskin
-            and agree to Cureskin's Privacy Policy and Terms of Service
+            By Proceeding, You consent to share your information with Dr.Dermat
+            and agree to Dr.Dermat's Privacy Policy and Terms of Service
           </Text>
         </View>
       )}

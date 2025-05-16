@@ -57,6 +57,15 @@ const DUMMYMEDS = [
 export default function Product() {
   const [search, setSearch] = useState("");
   const [showSection, setShowSection] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleScroll = (event) => {
+    const offsetX = event.nativeEvent.contentOffset.x;
+    const index = Math.floor(offsetX / (width - 40));
+
+    setCurrentIndex(index);
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <View
@@ -151,10 +160,52 @@ export default function Product() {
               </Text>
             </View>
           </View>
-          <Image
-            source={require("../../assets/products.png")}
-            style={{ width: width / 2, height: width / 2 }}
-          />
+          <View style={{ height: width / 2 }}>
+            <FlatList
+              data={[1, 2, 3, 4]}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              onScroll={handleScroll}
+              keyExtractor={(item) => item}
+              renderItem={(item) => {
+                return (
+                  <Image
+                    key={item}
+                    source={require("../../assets/products.png")}
+                    style={{
+                      width: width / 2,
+                      marginHorizontal: width / 4,
+                      height: width / 2,
+                    }}
+                  />
+                );
+              }}
+            />
+          </View>
+        </View>
+        <View
+          style={{
+            alignItems: "center",
+            flexDirection: "row",
+            justifyContent: "center",
+            gap: 10,
+            marginBottom: 20,
+          }}
+        >
+          {[1, 2, 3, 4].map((item, index) => {
+            return (
+              <View
+                key={index}
+                style={{
+                  borderWidth: currentIndex == index ? 3 : 2,
+                  width: 2,
+                  height: 2,
+                  borderRadius: "50%",
+                  borderBlockColor: currentIndex == 0 ? "black" : "grey",
+                }}
+              ></View>
+            );
+          })}
         </View>
 
         <View

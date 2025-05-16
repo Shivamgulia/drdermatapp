@@ -9,19 +9,23 @@ import {
   ScrollView,
   Keyboard,
 } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import LogoButton from "../components/UI/LogoButton";
 import Otp1 from "../../assets/otp1.png";
 import { useNavigation } from "@react-navigation/native";
 import Logo from "../../assets/drdermatlogo.jpeg";
 import OTPInput from "../components/UI/OtpInput";
+import { AuthContext } from "../store/authContext";
 
-export default function Confirmotp() {
+export default function Confirmotp({ route }) {
+  const params = route.params;
+
   const [otp, setOtp] = useState([]);
+  const [showKeyboard, setShowKeyboard] = useState(false);
 
   const navigation = useNavigation();
 
-  const [showKeyboard, setShowKeyboard] = useState(false);
+  const authCtx = useContext(AuthContext);
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
@@ -38,7 +42,13 @@ export default function Confirmotp() {
   }, []);
 
   function confirmOTP() {
-    navigation.navigate("Selectcity");
+    // navigation.navigate("Selectcity");
+
+    authCtx.login({
+      user: { name: "shivam", role: params?.role ? params?.role : "user" },
+      token: "token",
+    });
+
     let newOtp = "";
     otp.map((item) => {
       newOtp += item;
@@ -83,8 +93,8 @@ export default function Confirmotp() {
       {!showKeyboard && (
         <View style={styles.footCont}>
           <Text style={styles.footer}>
-            By Proceeding, You consent to share your information with cureskin
-            and agree to Cureskin's Privacy Policy and Terms of Service
+            By Proceeding, You consent to share your information with Dr.Dermat
+            and agree to Dr.Dermat's Privacy Policy and Terms of Service
           </Text>
         </View>
       )}

@@ -28,27 +28,21 @@ export default function Main() {
   function waitAndGo(callback) {
     setTimeout(() => {
       callback();
-    }, 3000); // Waits for 3 seconds (3000 milliseconds)
+    }, 3000);
   }
 
   function goToLogin() {
     console.log("go to ChooseRole");
-    // navigation.navigate("Dashboard");
     navigation.navigate("Login");
-    // navigation.navigate("ChooseRole");
-    // navigation.navigate("Clinic");
   }
   return (
     <SafeAreaView style={styles.container}>
       <Pressable onPress={goToLogin} style={styles.logoCont}>
-        {/* <SquareLogo onPress={goToLogin} /> */}
-
         <Image source={Logo} style={styles.logoImage} />
       </Pressable>
       <View style={styles.bottomCont}>
         <View style={styles.imageCont}>
           <Image source={Home1} style={styles.bottomImg} />
-          {/* <Image source={Home2} style={styles.bottomImg} /> */}
         </View>
         <Text style={styles.bottomtext}>Copyright by dr.dermat 2025</Text>
       </View>
