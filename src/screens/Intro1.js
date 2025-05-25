@@ -1,4 +1,10 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React, { useRef, useState } from "react";
 import LogoButton from "../components/UI/LogoButton";
 import { SafeAreaView } from "react-native";
@@ -7,6 +13,7 @@ import { Image } from "react-native";
 import { Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Logo from "../../assets/drdermatlogo.jpeg";
+import Icon from "react-native-vector-icons/Ionicons";
 
 import { Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
@@ -43,6 +50,24 @@ export default function Intro1() {
   }
   return (
     <View style={styles.cont}>
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          left: 20,
+          top: 60,
+          backgroundColor: "#155e95",
+          borderRadius: "50%",
+          padding: 5,
+          zIndex: 2,
+        }}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        {navigation.canGoBack() && (
+          <Icon name="arrow-back" size={20} color="white" />
+        )}
+      </TouchableOpacity>
       <View style={styles.logoCont}>
         {/* <LogoButton onPress={() => {}} /> */}
         <Image source={Logo} style={styles.logoImage} />
@@ -134,15 +159,19 @@ export default function Intro1() {
         </View>
       </View>
 
-      <View style={{ marginTop: 30 }}>
+      <View style={{ marginTop: 30, gap: 20 }}>
         {currentIndex != 2 && (
           <Pressable style={styles.button} onPress={scrollNext}>
             <Text style={styles.text}>Next</Text>
           </Pressable>
         )}
-        {currentIndex == 2 && (
+        {currentIndex == 2 ? (
           <Pressable style={styles.button} onPress={goToIntro2}>
             <Text style={styles.text}>Get Started</Text>
+          </Pressable>
+        ) : (
+          <Pressable style={styles.button} onPress={goToIntro2}>
+            <Text style={styles.text}>Skip</Text>
           </Pressable>
         )}
       </View>

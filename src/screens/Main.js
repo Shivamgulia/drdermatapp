@@ -39,6 +39,9 @@ export default function Main() {
     <SafeAreaView style={styles.container}>
       <Pressable onPress={goToLogin} style={styles.logoCont}>
         <Image source={Logo} style={styles.logoImage} />
+        <Text style={{ color: "white", marginTop: 10, fontSize: 20 }}>
+          Your own dermat!
+        </Text>
       </Pressable>
       <View style={styles.bottomCont}>
         <View style={styles.imageCont}>

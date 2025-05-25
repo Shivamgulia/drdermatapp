@@ -10,6 +10,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Keyboard,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 
@@ -17,13 +18,15 @@ import { useNavigation } from "@react-navigation/native";
 
 import UserForm from "../../assets/userform.png";
 import Logo from "../../assets/drdermatlogo.jpeg";
+import Icon from "react-native-vector-icons/Ionicons";
 
 import { Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 
 export default function UserDetailsForm() {
-  const [name, setName] = useState();
-  const [address, setAddress] = useState();
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [error, setError] = useState(false);
 
   const navigation = useNavigation();
 
@@ -44,6 +47,12 @@ export default function UserDetailsForm() {
   }, []);
 
   function confirmOTP() {
+    console.log(name);
+    if (name.trim() == "" || !name) {
+      setError(true);
+      return;
+    }
+
     console.log("confirm OTP");
     navigation.navigate("Intro1");
   }
@@ -55,6 +64,24 @@ export default function UserDetailsForm() {
   return (
     // <View behavior={Platform.OS === "ios" ? "padding" : "height"}>
     <View style={styles.container}>
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          left: 20,
+          top: 60,
+          backgroundColor: "#155e95",
+          borderRadius: "50%",
+          padding: 5,
+          zIndex: 2,
+        }}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        {navigation.canGoBack() && (
+          <Icon name="arrow-back" size={20} color="white" />
+        )}
+      </TouchableOpacity>
       {!showKeyboard && (
         <View style={styles.logoCont}>
           <Image source={Logo} style={styles.logoImage} />
@@ -69,15 +96,25 @@ export default function UserDetailsForm() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.form}
       >
-        <Text style={styles.signText}>Add your information ....</Text>
+        <Text style={styles.signText}>Add Your Information</Text>
         <View style={styles.inputView}>
           <Text style={styles.label}>Name</Text>
           <TextInput
             onChangeText={setName}
+            onChange={() => {
+              if (name && !name.trim() == "") {
+                setError(false);
+              }
+            }}
             value={name}
             placeholder="Full Name"
-            style={styles.input}
+            style={[styles.input, error ? styles.error : {}]}
           />
+          {error && (
+            <Text style={{ color: "red", fontSize: 10 }}>
+              Name is a required field
+            </Text>
+          )}
         </View>
         <View style={styles.inputView}>
           <Text style={styles.label}>Your Email</Text>
@@ -187,5 +224,8 @@ const styles = StyleSheet.create({
   footCont: {
     // position: "relative",
     // top: 10,
+  },
+  error: {
+    borderColor: "red",
   },
 });

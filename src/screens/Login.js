@@ -79,15 +79,20 @@ export default function Login({ route }) {
         <Text style={styles.signText}>Sign In To Continue</Text>
         <View style={styles.inputView}>
           <Text style={styles.label}>Mobile No.</Text>
-          <TextInput
-            onChangeText={setNumber}
-            value={number}
-            placeholder="Mobile Number"
-            style={styles.input}
-          />
+          <View style={styles.input}>
+            <Text> + 91</Text>
+            <TextInput
+              onChangeText={setNumber}
+              value={number}
+              placeholder="Mobile Number"
+              maxLength={10}
+              keyboardType="numeric"
+              // style={styles.input}
+            />
+          </View>
         </View>
         <Pressable onPress={confirmOTP} style={styles.generateButton}>
-          <Text style={styles.generateText}>Continue</Text>
+          <Text style={styles.generateText}>Get Verification Code</Text>
         </Pressable>
         <TouchableOpacity onPress={navigateRole} style={{}}>
           <Text style={{ color: "grey" }}>Choose Different Role</Text>
@@ -160,6 +165,8 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   input: {
+    flexDirection: "row",
+    gap: 5,
     borderRadius: 10,
     paddingVertical: 15,
     paddingHorizontal: 20,

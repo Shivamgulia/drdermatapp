@@ -83,21 +83,21 @@ export default function ClinicCard({ item, hideButtons }) {
         >
           <View style={styles.buttons}>
             <Text style={styles.text}>
-              <Icon2 name="phone-alt" size={12} />
+              <Icon2 name="phone-alt" size={10} />
               {"  "}
               Call
             </Text>
           </View>
           <View style={styles.greenButton}>
             <Text style={styles.greenButtonText}>
-              <Icon name="logo-whatsapp" size={12} />
+              <Icon name="logo-whatsapp" size={10} />
               {"  "}
               Whatsapp
             </Text>
           </View>
           <View style={styles.buttons}>
             <Text style={styles.text}>
-              <Icon name="map" size={12} color={"white"} />
+              <Icon name="map" size={10} color={"white"} />
               {"  "}
               Direction
             </Text>
@@ -115,12 +115,12 @@ export default function ClinicCard({ item, hideButtons }) {
 const styles = StyleSheet.create({
   buttons: {
     backgroundColor: "#155e95",
-    paddingHorizontal: 8,
+    paddingHorizontal: 6,
     paddingVertical: 2,
     borderRadius: 20,
     justifyContent: "center",
   },
-  text: { color: "white", fontSize: 12 },
+  text: { color: "white", fontSize: 10 },
   greenButton: {
     paddingHorizontal: 10,
     paddingVertical: 4,

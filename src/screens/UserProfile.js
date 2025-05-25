@@ -14,8 +14,9 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 
 import { Dimensions } from "react-native";
 import { AuthContext } from "../store/authContext";
+import Icon1 from "react-native-vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
 const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
 
 const OPTIONS1 = [
   {
@@ -79,8 +80,27 @@ const OPTIONS2 = [
 
 export default function UserProfile() {
   const authCtx = useContext(AuthContext);
+  const navigation = useNavigation();
   return (
     <>
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          left: 20,
+          top: 60,
+          backgroundColor: "#155e95",
+          borderRadius: "50%",
+          padding: 5,
+          zIndex: 2,
+        }}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        {navigation.canGoBack() && (
+          <Icon1 name="arrow-back" size={20} color="white" />
+        )}
+      </TouchableOpacity>
       <View style={{ backgroundColor: "#155e95", flex: 1 }}>
         <View style={{ flex: 7, backgroundColor: "white" }}>
           <View

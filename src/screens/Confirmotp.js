@@ -8,6 +8,8 @@ import {
   Platform,
   ScrollView,
   Keyboard,
+  Touchable,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState, useEffect, useContext } from "react";
 import LogoButton from "../components/UI/LogoButton";
@@ -16,16 +18,28 @@ import { useNavigation } from "@react-navigation/native";
 import Logo from "../../assets/drdermatlogo.jpeg";
 import OTPInput from "../components/UI/OtpInput";
 import { AuthContext } from "../store/authContext";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default function Confirmotp({ route }) {
   const params = route.params;
 
   const [otp, setOtp] = useState([]);
   const [showKeyboard, setShowKeyboard] = useState(false);
+  const [secondsLeft, setSecondsLeft] = useState(60);
 
   const navigation = useNavigation();
 
   const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    if (secondsLeft <= 0) return;
+
+    const timer = setInterval(() => {
+      setSecondsLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(timer); // Cleanup
+  }, [secondsLeft]);
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
@@ -58,6 +72,24 @@ export default function Confirmotp({ route }) {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          left: 20,
+          top: 60,
+          backgroundColor: "#155e95",
+          borderRadius: "50%",
+          padding: 5,
+          zIndex: 2,
+        }}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        {navigation.canGoBack() && (
+          <Icon name="arrow-back" size={20} color="white" />
+        )}
+      </TouchableOpacity>
       {!showKeyboard && (
         <View style={styles.logoCont}>
           <Image source={Logo} style={styles.logoImage} />
@@ -78,14 +110,27 @@ export default function Confirmotp({ route }) {
             <View style={styles.inputView}>
               <OTPInput length={6} updateOtp={setOtp} />
             </View>
-            <Text style={styles.timeText}>
-              Time left for verification - {"{28}"} sec
-            </Text>
+            {/* <Text style={styles.timeText}>
+              Time left for verification - {secondsLeft} sec
+            </Text> */}
             <Pressable onPress={confirmOTP} style={styles.generateButton}>
               <Text style={styles.generateText}>Confirm OTP</Text>
             </Pressable>
-            <Pressable onPress={() => {}} style={styles.resendButton}>
-              <Text style={styles.resendText}>Resend OTP</Text>
+            <Pressable
+              onPress={() => {
+                secondsLeft(60);
+              }}
+              style={styles.resendButton}
+              disabled={secondsLeft > 0}
+            >
+              <Text
+                style={[
+                  styles.resendText,
+                  secondsLeft == 0 ? {} : styles.disabled,
+                ]}
+              >
+                Resend OTP {"( " + secondsLeft + " sec )"}
+              </Text>
             </Pressable>
           </View>
         </View>
@@ -190,7 +235,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
   resendText: {
-    fontSize: 10,
+    fontSize: 13,
   },
   footCont: {
     position: "relative",
@@ -203,5 +248,8 @@ const styles = StyleSheet.create({
     fontSize: 10,
     paddingHorizontal: 40,
     textAlign: "center",
+  },
+  disabled: {
+    color: "grey",
   },
 });

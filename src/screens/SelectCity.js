@@ -7,6 +7,7 @@ import {
   TextInput,
   Image,
   Pressable,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import { Dimensions } from "react-native";
@@ -34,6 +35,24 @@ function SelectCity() {
 
   return (
     <View style={styles.cont}>
+      <TouchableOpacity
+        style={{
+          position: "absolute",
+          left: 20,
+          top: 60,
+          backgroundColor: "#155e95",
+          borderRadius: "50%",
+          padding: 5,
+          zIndex: 2,
+        }}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        {navigation.canGoBack() && (
+          <Icon name="arrow-back" size={20} color="white" />
+        )}
+      </TouchableOpacity>
       <View style={styles.top}></View>
       <Pressable style={styles.middle} onPress={moveForwad}>
         <Text style={styles.input}>
