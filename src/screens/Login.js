@@ -76,9 +76,9 @@ export default function Login({ route }) {
         behavior={Platform.OS === "ios" ? "padding" : "padding"}
         style={styles.form}
       >
-        <Text style={styles.signText}>Sign In To Continue</Text>
+        <Text style={styles.signText}>Sign in to continue</Text>
         <View style={styles.inputView}>
-          <Text style={styles.label}>Mobile No.</Text>
+          <Text style={styles.label}>Enter 10 digit mobile no.</Text>
           <View style={styles.input}>
             <Text> + 91</Text>
             <TextInput
@@ -94,9 +94,6 @@ export default function Login({ route }) {
         <Pressable onPress={confirmOTP} style={styles.generateButton}>
           <Text style={styles.generateText}>Get Verification Code</Text>
         </Pressable>
-        <TouchableOpacity onPress={navigateRole} style={{}}>
-          <Text style={{ color: "grey" }}>Choose Different Role</Text>
-        </TouchableOpacity>
       </KeyboardAvoidingView>
       {!showKeyboard && (
         <View style={styles.footCont}>

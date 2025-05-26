@@ -6,21 +6,21 @@ const width = Dimensions.get("window").width;
 export default function ClinicServices() {
   return (
     <>
-      <View
+      {/* <View
         style={{
           flexDirection: "row",
           justifyContent: "space-evenly",
           marginTop: 20,
         }}
       >
-        {/* <View
+        <View
                   style={[
                     styles.buttons,
                     { paddingHorizontal: 30, paddingVertical: 10 },
                   ]}
                 >
                   <Text style={styles.text}>Add Services</Text>
-                </View> */}
+                </View>
         <View
           style={{
             paddingHorizontal: 40,
@@ -33,11 +33,10 @@ export default function ClinicServices() {
         >
           <Text>
             <Icon name="search" />
-            {"  "}
             Search
           </Text>
         </View>
-      </View>
+      </View> */}
 
       <View style={{ marginTop: 30, gap: 20 }}>
         <View style={styles.service}>

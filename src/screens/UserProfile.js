@@ -122,12 +122,12 @@ export default function UserProfile() {
           <View
             style={{ flexDirection: "row", justifyContent: "space-evenly" }}
           >
-            <View>
+            {/* <View>
               <Image
                 source={require("../../assets/profile.png")}
                 style={{ width: 100, height: 100, borderRadius: 50 }}
               />
-            </View>
+            </View> */}
             <View
               style={{ justifyContent: "center", alignItems: "flex-start" }}
             >
@@ -136,7 +136,7 @@ export default function UserProfile() {
               >
                 Jane Doe
               </Text>
-              <Text style={{ color: "#515c70" }}>Janedoe123@gmail.com</Text>
+              <Text style={{ color: "#515c70" }}>+91 7847593758</Text>
               <TouchableOpacity
                 style={{
                   borderWidth: 1,
@@ -162,8 +162,7 @@ export default function UserProfile() {
             <View
               style={{
                 justifyContent: "center",
-                alignItems: "flex-end",
-                paddingRight: 40,
+                paddingLeft: 40,
                 paddingTop: 30,
               }}
             >
@@ -176,20 +175,11 @@ export default function UserProfile() {
                       style={{
                         flexDirection: "row",
                         alignItems: "center",
-                        justifyContent: "flex-end",
+                        justifyContent: "flex-start",
                         gap: 10,
                         paddingVertical: 5,
                       }}
                     >
-                      <Text
-                        style={{
-                          textAlign: "right",
-                          color: "#505c6f",
-                          fontSize: 20,
-                        }}
-                      >
-                        {item.item.text}
-                      </Text>
                       <View
                         style={{
                           width: 30,
@@ -199,6 +189,15 @@ export default function UserProfile() {
                       >
                         <Icon name={item.item.icon} size={20} color="black" />
                       </View>
+                      <Text
+                        style={{
+                          textAlign: "right",
+                          color: "#505c6f",
+                          fontSize: 20,
+                        }}
+                      >
+                        {item.item.text}
+                      </Text>
                     </TouchableOpacity>
                   );
                 }}
@@ -226,20 +225,11 @@ export default function UserProfile() {
                       style={{
                         flexDirection: "row",
                         alignItems: "center",
-                        justifyContent: "flex-end",
+                        justifyContent: "flex-start",
                         gap: 10,
                         paddingVertical: 5,
                       }}
                     >
-                      <Text
-                        style={{
-                          textAlign: "right",
-                          color: "#505c6f",
-                          fontSize: 20,
-                        }}
-                      >
-                        {item.item.text}
-                      </Text>
                       <View
                         style={{
                           width: 30,
@@ -249,6 +239,15 @@ export default function UserProfile() {
                       >
                         <Icon name={item.item.icon} size={20} color="black" />
                       </View>
+                      <Text
+                        style={{
+                          // textAlign: "right",
+                          color: "#505c6f",
+                          fontSize: 20,
+                        }}
+                      >
+                        {item.item.text}
+                      </Text>
                     </TouchableOpacity>
                   );
                 }}

@@ -34,13 +34,13 @@ const UserStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Selectcity"
-        component={SelectCity}
+        name="Userdetailsform"
+        component={UserDetailsForm}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Userdetailsform"
-        component={UserDetailsForm}
+        name="Selectcity"
+        component={SelectCity}
         options={{ headerShown: false }}
       />
       <Stack.Screen

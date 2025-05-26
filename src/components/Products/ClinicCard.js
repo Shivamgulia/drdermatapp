@@ -30,7 +30,7 @@ export default function ClinicCard({ item, hideButtons }) {
         <View>
           <Image
             source={data.image}
-            style={{ width: windowWidth / 4, height: 100 }}
+            style={{ width: windowWidth / 3, height: windowWidth / 3 }}
           />
         </View>
         <View>
@@ -68,7 +68,7 @@ export default function ClinicCard({ item, hideButtons }) {
                 fontSize: 12,
               }}
             >
-              {data.description}
+              {data.description.substring(0, 100) + "..."}
             </Text>
           </View>
         </View>
@@ -83,21 +83,21 @@ export default function ClinicCard({ item, hideButtons }) {
         >
           <View style={styles.buttons}>
             <Text style={styles.text}>
-              <Icon2 name="phone-alt" size={10} />
+              <Icon2 name="phone-alt" size={13} />
               {"  "}
               Call
             </Text>
           </View>
           <View style={styles.greenButton}>
             <Text style={styles.greenButtonText}>
-              <Icon name="logo-whatsapp" size={10} />
+              <Icon name="logo-whatsapp" size={13} />
               {"  "}
               Whatsapp
             </Text>
           </View>
           <View style={styles.buttons}>
             <Text style={styles.text}>
-              <Icon name="map" size={10} color={"white"} />
+              <Icon name="map" size={13} color={"white"} />
               {"  "}
               Direction
             </Text>
@@ -115,12 +115,12 @@ export default function ClinicCard({ item, hideButtons }) {
 const styles = StyleSheet.create({
   buttons: {
     backgroundColor: "#155e95",
-    paddingHorizontal: 6,
-    paddingVertical: 2,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
     borderRadius: 20,
     justifyContent: "center",
   },
-  text: { color: "white", fontSize: 10 },
+  text: { color: "white", fontSize: 13 },
   greenButton: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
   },
   greenButtonText: {
     color: "#34bc68",
+    fontSize: 13,
   },
   service: {
     flexDirection: "row",

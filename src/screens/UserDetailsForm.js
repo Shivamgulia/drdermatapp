@@ -20,13 +20,16 @@ import UserForm from "../../assets/userform.png";
 import Logo from "../../assets/drdermatlogo.jpeg";
 import Icon from "react-native-vector-icons/Ionicons";
 
+import { isValidEmail } from "../components/lib/validateEmail";
+
 import { Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 
 export default function UserDetailsForm() {
   const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
+  const [emailerror, setEmailError] = useState(false);
 
   const navigation = useNavigation();
 
@@ -52,9 +55,11 @@ export default function UserDetailsForm() {
       setError(true);
       return;
     }
-
+    if (!email || email.trim() == "" || isValidEmail(email)) {
+      setEmailError(true);
+    }
     console.log("confirm OTP");
-    navigation.navigate("Intro1");
+    navigation.navigate("Selectcity");
   }
 
   function navigateLogin() {
@@ -119,8 +124,13 @@ export default function UserDetailsForm() {
         <View style={styles.inputView}>
           <Text style={styles.label}>Your Email</Text>
           <TextInput
-            onChangeText={setAddress}
-            value={address}
+            onChangeText={setEmail}
+            value={email}
+            onChange={() => {
+              if (isValidEmail(email)) {
+                setEmailError(false);
+              }
+            }}
             placeholder="Enter your email"
             style={styles.input}
           />

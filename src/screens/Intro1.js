@@ -170,8 +170,8 @@ export default function Intro1() {
             <Text style={styles.text}>Get Started</Text>
           </Pressable>
         ) : (
-          <Pressable style={styles.button} onPress={goToIntro2}>
-            <Text style={styles.text}>Skip</Text>
+          <Pressable style={{ alignItems: "center" }} onPress={goToIntro2}>
+            <Text style={{ color: "grey", fontWeight: "bold" }}>Skip</Text>
           </Pressable>
         )}
       </View>

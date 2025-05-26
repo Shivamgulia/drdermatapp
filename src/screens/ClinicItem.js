@@ -83,21 +83,21 @@ export default function ClinicItem() {
           >
             <View style={styles.buttons}>
               <Text style={styles.text}>
-                <Icon name="phone" size={14} />
+                <Icon name="phone" size={12} />
                 {"  "}
                 Call
               </Text>
             </View>
             <View style={styles.greenButton}>
               <Text style={styles.greenButtonText}>
-                <Icon name="whatsapp" size={14} />
+                <Icon name="whatsapp" size={12} />
                 {"  "}
                 Whatsapp
               </Text>
             </View>
             <View style={styles.buttons}>
               <Text style={styles.text}>
-                <Icon name="map" size={14} color={"white"} />
+                <Icon name="map" size={12} color={"white"} />
                 {"  "}
                 Direction
               </Text>
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 20,
   },
-  text: { color: "white" },
+  text: { color: "white", fontSize: 12 },
   greenButton: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -202,5 +202,6 @@ const styles = StyleSheet.create({
   },
   greenButtonText: {
     color: "#34bc68",
+    fontSize: 12,
   },
 });

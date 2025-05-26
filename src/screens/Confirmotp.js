@@ -105,14 +105,14 @@ export default function Confirmotp({ route }) {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <View style={styles.bottomForm}>
-          <Text style={styles.numberText}>Verify mobile number ...</Text>
+          <Text style={styles.numberText}>Verify mobile number </Text>
+          <Text style={[styles.resendText, { color: "grey" }]}>
+            6 Digit Code has been sent to your mobile number
+          </Text>
           <View style={styles.form}>
             <View style={styles.inputView}>
               <OTPInput length={6} updateOtp={setOtp} />
             </View>
-            {/* <Text style={styles.timeText}>
-              Time left for verification - {secondsLeft} sec
-            </Text> */}
             <Pressable onPress={confirmOTP} style={styles.generateButton}>
               <Text style={styles.generateText}>Confirm OTP</Text>
             </Pressable>
@@ -129,7 +129,9 @@ export default function Confirmotp({ route }) {
                   secondsLeft == 0 ? {} : styles.disabled,
                 ]}
               >
-                Resend OTP {"( " + secondsLeft + " sec )"}
+                {secondsLeft > 0
+                  ? "Didn't get the code? Resend in ( " + secondsLeft + " sec )"
+                  : "Resend Code"}
               </Text>
             </Pressable>
           </View>

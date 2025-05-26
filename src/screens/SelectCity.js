@@ -28,31 +28,31 @@ function SelectCity() {
   function moveForwad() {
     console.log("userdetailsform");
 
-    navigation.navigate("Userdetailsform");
+    navigation.navigate("Intro1");
   }
 
   console.log(windowHeight, windowWidth);
 
   return (
     <View style={styles.cont}>
-      <TouchableOpacity
-        style={{
-          position: "absolute",
-          left: 20,
-          top: 60,
-          backgroundColor: "#155e95",
-          borderRadius: "50%",
-          padding: 5,
-          zIndex: 2,
-        }}
-        onPress={() => {
-          navigation.goBack();
-        }}
-      >
-        {navigation.canGoBack() && (
+      {navigation.canGoBack() && (
+        <TouchableOpacity
+          style={{
+            position: "absolute",
+            left: 20,
+            top: 60,
+            backgroundColor: "#155e95",
+            borderRadius: "50%",
+            padding: 5,
+            zIndex: 2,
+          }}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
           <Icon name="arrow-back" size={20} color="white" />
-        )}
-      </TouchableOpacity>
+        </TouchableOpacity>
+      )}
       <View style={styles.top}></View>
       <Pressable style={styles.middle} onPress={moveForwad}>
         <Text style={styles.input}>
@@ -72,7 +72,7 @@ function SelectCity() {
         <View style={styles.listCont}>
           <FlatList
             data={DUMMYCITIES}
-            renderItem={(item) => <CityItem item={item} />}
+            renderItem={(item) => <CityItem item={item} next={moveForwad} />}
             keyExtractor={(item, index) => {
               return index;
             }}
@@ -85,12 +85,12 @@ function SelectCity() {
 
 export default SelectCity;
 
-function CityItem(item) {
+function CityItem(props) {
   return (
-    <Pressable style={styles.city} onPress={() => {}}>
+    <TouchableOpacity style={styles.city} onPress={props.next}>
       <Image source={CityIcon} style={styles.cityicon} />
-      <Text>{item.item.item}</Text>
-    </Pressable>
+      <Text>{props.item.item}</Text>
+    </TouchableOpacity>
   );
 }
 
